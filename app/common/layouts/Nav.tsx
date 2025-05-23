@@ -1,4 +1,4 @@
-import NavItem from "../components/NavItem.tsx";
+import NavItem from "~/common/components/NavItem";
 
 type NavProps = {
   className?: string
@@ -11,10 +11,10 @@ export default function Nav({ className = '' }: NavProps) {
       <NavItem
         label="입・출하관리"
         subMenu={[
-          { label: '통합관리', to: '/stock-management/stock-overview' },
-          { label: '입식', to: '/' },
-          { label: '출하', to: '/' },
-          { label: '이력 관리', to: '/' },
+          { label: '통합관리', to: '/diary' },
+          { label: '입식', to: '/diary/enter' },
+          { label: '출하', to: '/diary/sale' },
+          { label: '이력 관리', to: '/diary/log' },
         ]}
       />
       <NavItem

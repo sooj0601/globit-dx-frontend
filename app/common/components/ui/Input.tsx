@@ -10,19 +10,21 @@ type InputProps = {
   readonly?: boolean;
   error?: string;
   className?: string;
+  onClick?: () => void;
 };
 
 const Input: React.FC<InputProps> = ({
-      type = 'text',
-      name,
-      value,
-      placeholder,
-      onChange,
-      disabled = false,
-      readonly = false,
-      error,
-      className = '',
-    }) => {
+    type = 'text',
+    name,
+    value,
+    placeholder,
+    onChange,
+    disabled = false,
+    readonly = false,
+    error,
+    className = '',
+    onClick,
+  }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const isPassword = type === 'password';
@@ -34,17 +36,22 @@ const Input: React.FC<InputProps> = ({
         name={name}
         value={value}
         placeholder={placeholder}
-        onChange={onChange}
+        onChange={onChange ?? (() => {})}
+        onClick={onClick}
         disabled={disabled}
         readOnly={readonly}
-        className={`w-full h-10 px-3 border  rounded-lg outline-none transition-all 
-          ${error ? 'border-rose-500' : 'border-slate-300'}
-          ${disabled ? 'cursor-not-allowed text-slate-400 bg-slate-100 ' : 'hover:border-slate-400' +
-          ' focus:border-slate-400 bg-white'}
-          ${readonly ? 'cursor-not-allowed bg-slate-100' : 'hover:border-slate-400' +
-          ' focus:border-slate-400 bg-white'}
-          ${className}`}
+        className={`w-full h-10 px-3 border rounded-lg outline-none transition-all
+    ${error ? 'border-rose-500' : 'border-slate-300'}
+    ${
+          disabled
+            ? 'cursor-not-allowed text-slate-400 bg-slate-100'
+            : readonly
+              ? 'bg-slate-100 font-bold'
+              : 'bg-white hover:border-slate-400 focus:border-slate-400'
+        }
+    ${className}`}
       />
+
       {isPassword && (
         <button
           type="button"
