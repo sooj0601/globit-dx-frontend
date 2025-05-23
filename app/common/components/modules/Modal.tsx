@@ -34,7 +34,7 @@ function Modal({ onClose, title, size = "md", children, zIndex = 60 }: ModalProp
           fixed left-4 right-4 top-1/2 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 
           bg-white rounded-2xl md:rounded-3xl shadow-lg p-6
           max-h-[80vh] overflow-auto
-          w-auto flex flex-col gap-8
+          w-auto flex flex-col gap-6
           ${sizeClass}
         `}
         style={{ zIndex: zIndex }}
@@ -49,7 +49,9 @@ function Modal({ onClose, title, size = "md", children, zIndex = 60 }: ModalProp
             <span className="font-bold">닫기</span><X size={24} />
           </button>
         </div>
-        {children}
+        <div className=" overflow-auto shrink-0 flex flex-col gap-8">
+          {children}
+        </div>
       </div>
     </>
   );

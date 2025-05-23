@@ -1,14 +1,14 @@
-import PageUtilLine from '../../../common/components/PageUtilLine';
-import Container from '../../../common/layouts/Container';
-import PageTitle from '../../../common/components/PageTitle';
-import CustomBtn from '../../../common/components/ui/CustomBtn';
-import GroupItem from '../../../common/components/modules/GroupItem';
-import UtilLabel from '../../../common/components/ui/UtilLabel';
-import { AccordionItem } from '../../../common/components/modules/AccordionItem';
-import WaterTankItemLine from '../components/water-tank-item';
-import InfoItem from '../components/info-item';
+import PageUtilLine from '~/common/components/PageUtilLine';
+import Container from '~/common/layouts/Container';
+import PageTitle from '~/common/components/PageTitle';
+import CustomBtn from '~/common/components/ui/CustomBtn';
+import GroupItem from '~/common/components/modules/GroupItem';
+import CustomLabel from '~/common/components/ui/CustomLabel';
+import { AccordionItem } from '~/common/components/modules/AccordionItem';
+import WaterTankItemLine from '~/features/monitoring/components/water-tank-item';
+import InfoItem from '~/features/monitoring/components/info-item';
 import { ClipboardPen } from 'lucide-react';
-import ModalEditInfo from '../components/modal-edit-info';
+import ModalEditInfo from '~/features/monitoring/components/modal-edit-info';
 import { useState } from 'react';
 
 export default function FarmMonitoringPage() {
@@ -18,7 +18,7 @@ export default function FarmMonitoringPage() {
       <PageTitle title="양식 현황" className={'md:mb-8'} />
       <PageUtilLine className="justify-between">
         <div className="flex items-center gap-4">
-          <UtilLabel label="기준일자 선택" className="hidden md:flex" />
+          <CustomLabel label="기준일자 선택" className="hidden md:flex" />
           <input
             id="date-pick"
             type="date"
@@ -39,7 +39,7 @@ export default function FarmMonitoringPage() {
         </div>
       </PageUtilLine>
       <PageUtilLine className="mt-6 py-6 border-t border-slate-300">
-        <UtilLabel label="입식 그룹" />
+        <CustomLabel label="입식 그룹" />
         <div className="flex flex-wrap gap-2">
           <GroupItem
             key="group-item-1"

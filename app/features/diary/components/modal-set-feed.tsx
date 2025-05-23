@@ -1,10 +1,24 @@
-import Modal from "../../../../../globit-2025-yst/src/components/modules/Modal.tsx";
-interface Props {
+import Tabs from "~/common/components/modules/Tabs";
+import Modal from "~/common/components/modules/Modal";
+import CustomBtn from "~/common/components/ui/CustomBtn";
+import Select from "~/common/components/ui/Select";
+import Input from "~/common/components/ui/Input";
+import InputSet from "~/common/components/modules/InputSet";
+import {useState} from "react";
+import TableTd from "~/features/diary/components/table-td";
+import TankName from "~/features/diary/components/tank-name";
+import {Plus, Trash2} from "lucide-react";
+
+interface ModalSetFeedProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export default function ModalEditInfo({ isOpen, onClose }: Props) {
+export default function ModalSetFeed({ isOpen, onClose }: ModalSetFeedProps) {
+  const [selected, setSelected] = useState('');
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelected(e.target.value);
+  };
   if (!isOpen) return null;
 
   return (
@@ -14,7 +28,81 @@ export default function ModalEditInfo({ isOpen, onClose }: Props) {
       size="md"
       zIndex={60}
     >
-      <div className="flex flex-col gap-2 ">
+      <Tabs
+        tabs={[
+          { label: '전체 입력',
+            content:
+              <div className="flex flex-col gap-6">
+                <InputSet label="사료 선택" variant="col">
+                  <Select
+                    name="feedType"
+                    onChange={(e) => setSelected(e.target.value)}
+                    className="grow"
+                    value={selected} // 추가
+                    options={[
+                      { label: '혼합사료 1', value: '혼합사료 1' },
+                      { label: '혼합사료 1', value: '혼합사료 1' },
+                      { label: '혼합사료 1', value: '혼합사료 1' },
+                    ]}
+                  />
+                </InputSet>
+                <InputSet label="급이량 입력" variant="col">
+                  <Input className="grow" value=""/>
+                </InputSet>
+              </div>
+          },
+          { label: '시간 입력',
+            content:
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center px-4 py-2 font-bold bg-slate-600 text-slate-300 rounded-full gap-1">
+                  <div className="text-center w-10">순차</div>
+                  <div className="text-center flex-1">시간 선택</div>
+                  <div className="text-center flex-1">사료 선택</div>
+                  <div className="text-center flex-1">급이량(kg)</div>
+                  <div className="text-center w-10">-</div>
+                </div>
+                <div className="flex items-center px-4 py-2 rounded-2xl gap-4\1 bg-slate-100">
+                  <div className="w-10 text-center">1</div>
+                  <TableTd className="!flex-1">
+                    <Select
+                      name="timeSelect"
+                      onChange={(e) => setSelected(e.target.value)}
+                      className="grow"
+                      value={selected} // 추가
+                      options={[
+                        { label: '09:00', value: '09:00' },
+                      ]}
+                    />
+                  </TableTd>
+                  <TableTd className="!flex-1">
+                    <Select
+                      name="feedType2"
+                      onChange={(e) => setSelected(e.target.value)}
+                      className="grow"
+                      value={selected} // 추가
+                      options={[
+                        { label: '혼합사료 2', value: '혼합사료 2' },
+                      ]}
+                    />
+                  </TableTd>
+                  <TableTd className="!flex-1">
+                    <Input className="grow" value="300"/>
+                  </TableTd>
+                  <div className="w-10 text-center">
+                    <CustomBtn variant="danger" size="icon">
+                      <Trash2 size={16}/>
+                    </CustomBtn>
+                  </div>
+                </div>
+                <div className="flex items-center justify-center">
+                  <CustomBtn variant="ghost" rightIcon={<Plus size={16} strokeWidth={3}/>}>추가하기</CustomBtn>
+                </div>
+              </div>
+          }
+        ]}
+      />
+      <div className="flex gap-2">
+        <CustomBtn size="lg" variant="primary" className="grow">저장</CustomBtn>
       </div>
     </Modal>
   );

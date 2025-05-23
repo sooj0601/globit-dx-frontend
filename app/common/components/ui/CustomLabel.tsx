@@ -5,7 +5,7 @@ type UtilLabelProps = {
   htmlFor?: string
 }
 
-export default function UtilLabel({className = '', label, required, htmlFor}: UtilLabelProps) {
+export default function CustomLabel({className = '', label, required, htmlFor}: UtilLabelProps) {
   return (
     <label htmlFor={htmlFor} className={`flex items-center gap-2 font-bold shrink-0 min-w-24 ${className}`}>
       {label}

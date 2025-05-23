@@ -17,6 +17,6 @@ export default function TankName({ variant = 'slate', value }: TankNameProps) {
     pink: '!border-pink-500 !bg-pink-50 !text-pink-500',
   };
   return (
-      <Input type="text" value={value} readonly className={`text-center ${colorMap[variant]}`} />
+      <Input type="text" value={value} readonly inputStyle={`text-center ${colorMap[variant]}`} />
   );
 }

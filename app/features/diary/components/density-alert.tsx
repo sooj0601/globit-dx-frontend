@@ -12,6 +12,6 @@ export default function DensityAlert({ variant = 'green', value }: DensityAlertP
     yellow: '!border-0 !bg-yellow-400',
   };
   return (
-      <Input type="text" value={value} readonly className={`text-white text-center ${colorMap[variant]}`} />
+      <Input type="text" value={value} readonly inputStyle={`text-white text-center ${colorMap[variant]}`} />
   );
 }

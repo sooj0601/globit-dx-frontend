@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 type CustomBtnProps = {
   size?: 'sm' | 'lg' | 'icon';
-  variant?: 'default' | 'primary' | 'secondary' | 'danger';
+  variant?: 'default' | 'primary' | 'secondary' | 'danger' | 'ghost';
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   children?: ReactNode;
@@ -29,13 +29,13 @@ export default function CustomBtn({
   let sizeClass = '';
   switch (size) {
     case 'sm':
-      sizeClass = 'h-10 px-4';
+      sizeClass = 'h-10 px-4 rounded-xl';
       break;
     case 'lg':
-      sizeClass = 'px-6 py-3 text-lg';
+      sizeClass = 'h-13 px-4 rounded-xl';
       break;
     case 'icon':
-      sizeClass = 'p-2 w-10 h-10 flex items-center justify-center';
+      sizeClass = 'size-7 flex items-center justify-center rounded-lg';
       break;
   }
 
@@ -51,10 +51,13 @@ export default function CustomBtn({
       variantClass = 'bg-gray-100 text-gray-800 hover:bg-gray-200';
       break;
     case 'danger':
-      variantClass = 'bg-red-600 text-white hover:bg-red-700';
+      variantClass = 'bg-rose-500 text-white hover:bg-rose-300';
+      break;
+    case 'ghost':
+      variantClass = 'text-blue-500 hover:bg-slate-100';
       break;
   }
-  const baseClass = `inline-flex items-center justify-center gap-2 font-medium rounded-xl transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${sizeClass} ${variantClass} ${className}`;
+  const baseClass = `inline-flex items-center justify-center gap-2 font-bold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${sizeClass} ${variantClass} ${className}`;
   const content = (
     <>
       {leftIcon && <span className="flex-shrink-0">{leftIcon}</span>}

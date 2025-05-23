@@ -10,6 +10,7 @@ type InputProps = {
   readonly?: boolean;
   error?: string;
   className?: string;
+  inputStyle?: string;
   onClick?: () => void;
 };
 
@@ -23,6 +24,7 @@ const Input: React.FC<InputProps> = ({
     readonly = false,
     error,
     className = '',
+    inputStyle = '',
     onClick,
   }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -30,7 +32,7 @@ const Input: React.FC<InputProps> = ({
   const isPassword = type === 'password';
 
   return (
-    <div className="relative flex flex-col gap-1">
+    <div className={`relative flex flex-col gap-1 ${className}`}>
       <input
         type={isPassword && showPassword ? 'text' : type}
         name={name}
@@ -49,7 +51,7 @@ const Input: React.FC<InputProps> = ({
               ? 'bg-slate-100 font-bold'
               : 'bg-white hover:border-slate-400 focus:border-slate-400'
         }
-    ${className}`}
+    ${inputStyle}`}
       />
 
       {isPassword && (

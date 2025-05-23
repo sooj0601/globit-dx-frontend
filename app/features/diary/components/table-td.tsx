@@ -1,7 +1,7 @@
 import React from "react";
 
 type TableTdProps = {
-  label: string
+  label?: string
   children?: React.ReactNode
   onClick?: () => void
   className?: string
@@ -10,7 +10,9 @@ type TableTdProps = {
 export default function TableTd({ label, children, onClick, className }: TableTdProps) {
   return (
     <div className={`flex items-center lg:flex-1 gap-2 ${className}`} onClick={onClick}>
-      <strong className="lg:hidden text-slate-500 text-sm min-w-24">{label}</strong>
+      {label && (
+        <strong className="lg:hidden text-slate-500 text-sm min-w-24">{label}</strong>
+      )}
       {children}
     </div>
   );
