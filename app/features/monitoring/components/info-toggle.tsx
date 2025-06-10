@@ -13,7 +13,7 @@ export default function InfoToggle({
 }: InfoToggleProps) {
   return (
     <div
-      className={`flex items-center justify-between rounded-2xl p-4 ${
+      className={`flex items-center justify-between rounded-xl p-4 md:px-4 md:py-2 ${
         enabled ? 'bg-slate-100' : 'bg-slate-200'
       }`}
     >

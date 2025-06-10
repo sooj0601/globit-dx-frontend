@@ -27,5 +27,14 @@ export default [
     route('cage/:cageId', 'features/diary/pages/cage-log-page.tsx'),
   ]),
 
+  // MARK: - 마이페이지
+  ...prefix('mypage', [
+    route('', 'features/mypage/pages/info-page.tsx'),
+    route('feed', 'features/mypage/pages/feed-management.tsx'),
+    route('medicine', 'features/mypage/pages/medicine-management.tsx'),
+    route('farm', 'features/mypage/pages/farm-registration.tsx'),
+    route('watertank', 'features/mypage/pages/water-tank-management.tsx'),
+  ]),
+
   // MARK: - 관리자 페이지
 ] satisfies RouteConfig;

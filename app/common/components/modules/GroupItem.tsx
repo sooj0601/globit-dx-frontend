@@ -1,6 +1,7 @@
 type GroupItemProps = {
   name: string
-  colorName?: 'slate' | 'violet' | 'lime' | 'yellow' | 'cyan' | 'indigo' | 'teal' | 'pink'// 필요한 색상 미리 정의
+  colorName?: 'slate' | 'violet' | 'lime' | 'yellow' | 'cyan' | 'indigo' | 'teal' | 'pink' | 'brown' | 'orange'// 필요한 색상
+  // 미리 정의
   className?: string
 }
 
@@ -18,6 +19,8 @@ export default function GroupItem({
     indigo: 'bg-indigo-50 text-indigo-500 border-indigo-500',
     teal: 'bg-teal-50 text-teal-500 border-teal-500',
     pink: 'bg-pink-50 text-pink-500 border-pink-500',
+    brown: 'bg-[#FDF6F4] text-yellow-800 border-yellow-800',
+    orange: 'bg-orange-50 text-orange-500 border-orange-500',
   }
 
   return (

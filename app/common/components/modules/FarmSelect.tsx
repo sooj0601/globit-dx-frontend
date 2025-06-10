@@ -13,7 +13,7 @@ export default function FarmSelect({ className = '' }: FarmSelectProps) {
       <select
         id="farmList"
         name="farmList"
-        className="appearance-none block w-full h-12 pl-3 pr-8 rounded-full bg-slate-100 focus:border-blue-500 focus:ring-blue-500 font-medium"
+        className="appearance-none block w-full h-12 pl-3 pr-8 rounded-full bg-slate-50 focus:border-blue-500 focus:ring-blue-500 font-medium"
         defaultValue=""
       >
         <option value="all">

@@ -13,11 +13,11 @@ import DensityAlert from "~/features/diary/components/density-alert";
 import TankName from "~/features/diary/components/tank-name";
 import GroupItemList from "~/common/components/modules/GroupItemList";
 
-export default function DiaryPage() {
+export default function FarmRegistration() {
   const [openModal, setOpenModal] = useState<string | null>(null);
   return (
     <>
-      <PageTitle title="통합 관리" desc="통합 관리 페이지 입니다. 페이지 설명 텍스트가 들어갑니다." />
+      <PageTitle title="양식장 등록 관리" desc="양식장 등록 관리 페이지 입니다. 페이지 설명 텍스트가 들어갑니다." />
       <PageUtilLine>
         <div className="flex items-center gap-4 w-56 md:w-auto mx-auto md:mx-0">
           <CustomLabel label="기준일자 선택" className="hidden md:flex"/>

@@ -57,7 +57,7 @@ export default function CustomBtn({
       variantClass = 'text-blue-500 hover:bg-slate-100';
       break;
   }
-  const baseClass = `inline-flex items-center justify-center gap-2 font-bold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${sizeClass} ${variantClass} ${className}`;
+  const baseClass = `inline-flex items-center justify-center gap-2 font-bold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer ${sizeClass} ${variantClass} ${className}`;
   const content = (
     <>
       {leftIcon && <span className="flex-shrink-0">{leftIcon}</span>}

@@ -20,10 +20,11 @@ export default function Nav({ className = '' }: NavProps) {
       <NavItem
         label="마이페이지"
         subMenu={[
-          { label: '통합관리', to: '/' },
-          { label: '입식', to: '/' },
-          { label: '출하', to: '/' },
-          { label: '이력 관리', to: '/' },
+          { label: '내 정보 관리', to: '/mypage' },
+          { label: '사료 관리', to: '/mypage/feed' },
+          { label: '약품 관리', to: '/mypage/medicine' },
+          { label: '양식장 등록 관리', to: '/mypage/farm' },
+          { label: '수조 관리', to: '/mypage/watertank' },
         ]}
         className="lg:hidden"
       />

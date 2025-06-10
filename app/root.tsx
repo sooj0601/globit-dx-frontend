@@ -4,12 +4,13 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration,
+  ScrollRestoration, useLocation,
 } from 'react-router';
 
 import type { Route } from './+types/root';
 import './app.css';
 import Header from './common/layouts/Header';
+import MypageMenu from './common/layouts/MypageMenu';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -44,12 +45,24 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const location = useLocation();
+  const isMyPage = location.pathname.startsWith('/mypage');
+  const baseClass = 'w-full max-w-7xl mx-auto md:pt-10 px-4 md:py-12 md:px-6 grow';
   return (
     <div id="wrapper" className="w-full min-h-screen flex flex-col">
       <Header />
-      <main className="w-full max-w-7xl mx-auto md:pt-10 px-4 md:px-6 flex-grow">
-        <Outlet />
-      </main>
+      {isMyPage ? (
+        <div className={`${baseClass} flex gap-16`}>
+          <MypageMenu />
+          <main className={`w-full`}>
+            <Outlet />
+          </main>
+        </div>
+      ) : (
+        <main className={`${baseClass}`}>
+          <Outlet />
+        </main>
+      )}
     </div>
   );
 }

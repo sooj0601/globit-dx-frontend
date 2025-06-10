@@ -1,4 +1,4 @@
-import Modal from "~/common/components/modules/Modal";
+import Modal from "~/common/components/ui/Modal";
 import CustomBtn from "~/common/components/ui/CustomBtn";
 import Select from "~/common/components/ui/Select";
 import {useState} from "react";

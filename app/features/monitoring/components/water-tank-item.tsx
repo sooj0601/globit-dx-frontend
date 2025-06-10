@@ -12,7 +12,9 @@ type WaterTankItemProps = {
     | 'cyan'
     | 'indigo'
     | 'teal'
-    | 'pink'; // 필요한 색상 미리 정의
+    | 'pink'
+    | 'brown'
+    | 'orange'; // 필요한 색상 미리 정의
   children?: React.ReactNode;
 };
 
@@ -32,6 +34,8 @@ export default function WaterTankItemLine({
     indigo: 'bg-indigo-50 border-indigo-500',
     teal: 'bg-teal-50 border-teal-500',
     pink: 'bg-pink-50 border-pink-500',
+    brown: 'bg-[#FDF6F4] border-yellow-800',
+    orange: 'bg-orange-50 border-orange-500',
   };
   const textColorMap = {
     slate: 'text-slate-500',
@@ -42,6 +46,8 @@ export default function WaterTankItemLine({
     indigo: 'text-indigo-500',
     teal: 'text-teal-500',
     pink: 'text-pink-500',
+    brown: 'text-yellow-800',
+    orange: 'text-orange-500',
   };
   const borderColorMap = {
     slate: 'border-slate-500',
@@ -52,15 +58,17 @@ export default function WaterTankItemLine({
     indigo: 'border-indigo-500',
     teal: 'border-teal-500',
     pink: 'border-pink-500',
+    brown: 'border-yellow-800',
+    orange: 'border-orange-500',
   };
   return (
     <div
-      className={`border-4 rounded-2xl px-4 py-3 ${tankColorMap[colorName]} ${className}`}
+      className={`border-4 rounded-2xl p-2 md:px-4 md:py-3 ${tankColorMap[colorName]} ${className}`}
     >
       <div
-        className={`flex items-center pb-3 mb-3 justify-between border-b ${borderColorMap[colorName]}`}
+        className={`flex items-center pb-1 mb-1 md:pb-3 md:mb-3 justify-between border-b ${borderColorMap[colorName]}`}
       >
-        <p className={`font-bold text-lg ${textColorMap[colorName]}`}>
+        <p className={`font-bold text-md md:text-lg ${textColorMap[colorName]}`}>
           {tankName}
         </p>
         <DotBadge variant={`${state}`} />

@@ -1,4 +1,4 @@
-import Modal from "~/common/components/modules/Modal";
+import Modal from "~/common/components/ui/Modal";
 import CustomBtn from "~/common/components/ui/CustomBtn";
 import ModalTankAlert from "~/features/diary/components/modal-tank-alert";
 import ModalSetFeed from "~/features/diary/components/modal-set-feed";

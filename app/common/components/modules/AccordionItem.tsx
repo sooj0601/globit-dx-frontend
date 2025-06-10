@@ -10,16 +10,17 @@ type AccordionItemProps = {
   btnControl?: string; // 버튼 컨트롤을 위한 prop 추가
   variant?: 'slate' | 'violet' | 'lime' | 'yellow' | 'cyan' | 'indigo' | 'teal' | 'pink'
   className?: string;
+  childControl?: string;
   alwaysOpenOnPc?: boolean;
 }
 
-export function AccordionItem({ title, header, children, defaultOpen = true, btnControl, variant = 'slate', className, alwaysOpenOnPc = false }: AccordionItemProps) {
+export function AccordionItem({ title, header, children, defaultOpen = true, btnControl, variant = 'slate', className, childControl, alwaysOpenOnPc = false }: AccordionItemProps) {
   const isPc = useMediaQuery('(min-width: 1024px)') // lg 기준
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const forceOpen = alwaysOpenOnPc && isPc
   const actualOpen = forceOpen || isOpen
   const closeStyleMap = {
-    slate: 'bg-slate-100',
+    slate: 'bg-slate-50',
     violet: 'bg-violet-50',
     lime: 'bg-lime-50',
     yellow: 'bg-yellow-50',
@@ -29,7 +30,7 @@ export function AccordionItem({ title, header, children, defaultOpen = true, btn
     pink: 'bg-pink-50',
   };
   const openStyleMap = {
-    slate: 'bg-slate-100 md:bg-white',
+    slate: 'bg-slate-50 md:bg-white',
     violet: 'bg-violet-50 lg:border-0 border border-violet-500',
     lime: 'bg-lime-50 lg:border-0 border border-lime-500',
     yellow: 'bg-yellow-50 lg:border-0 border border-yellow-500',
@@ -39,7 +40,7 @@ export function AccordionItem({ title, header, children, defaultOpen = true, btn
     pink: 'bg-pink-50 lg:border-0 border border-pink-500',
   };
   const styleMap = {
-    slate: 'bg-slate-200',
+    slate: 'bg-slate-100',
     violet: 'bg-violet-50',
     lime: 'bg-lime-50',
     yellow: 'bg-yellow-50',
@@ -58,16 +59,16 @@ export function AccordionItem({ title, header, children, defaultOpen = true, btn
     teal: 'text-teal-800',
     pink: 'text-pink-800',
   };
+  const baseStyle = 'w-full cursor-pointer rounded-2xl flex items-center justify-between h-12 md:h-15 px-4 font-bold'
   return (
-    <div className={`rounded-2xl mb-2 overflow-hidden ${actualOpen ? openStyleMap[variant] : closeStyleMap[variant]}`}>
+    <div className={`rounded-2xl overflow-hidden ${actualOpen ? openStyleMap[variant] : closeStyleMap[variant]} ${className}`}>
       {!forceOpen && (
-        <button
-          type="button"
+        <div
           aria-expanded={actualOpen}
-          className={`w-full rounded-2xl flex items-center justify-between h-15 px-4 font-bold ${actualOpen ? closeStyleMap[variant] : styleMap[variant]} ${btnControl}`}
+          className={`${baseStyle} ${actualOpen ? closeStyleMap[variant] : styleMap[variant]} ${btnControl}`}
           onClick={() => setIsOpen(prev => !prev)}
         >
-          <span className={`font-bold text-xl ${textStyle[variant]}`}>{title}</span>
+          <span className={`font-bold text-lg md:text-xl ${textStyle[variant]}`}>{title}</span>
           <div className="ml-auto">
             {header}
           </div>
@@ -76,11 +77,11 @@ export function AccordionItem({ title, header, children, defaultOpen = true, btn
             size={32}
             strokeWidth={1.5}
           />
-        </button>
+        </div>
       )}
 
       {forceOpen && (
-        <div className={`w-full rounded-2xl flex items-center justify-between h-15 px-4 font-bold ${btnControl}`}>
+        <div className={`${baseStyle} ${btnControl}`}>
           <span className={`font-bold text-xl ${textStyle[variant]}`}>{title}</span>
           <div className="ml-auto">
             {header}
@@ -89,7 +90,7 @@ export function AccordionItem({ title, header, children, defaultOpen = true, btn
       )}
 
       {actualOpen && (
-        <div className={`p-4 md:py-6 ${className}`}>
+        <div className={`p-4  md:py-6 border-t md:border-0 border-slate-300 ${childControl}`}>
           {children}
         </div>
       )}

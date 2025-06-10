@@ -5,12 +5,12 @@ import UserInfo from '../components/modules/UserInfo';
 import { X } from 'lucide-react';
 import NavItem from '../components/NavItem';
 
-type SidebarProps = {
+type SideSlideProps = {
   open: boolean;
   onClose: () => void;
 };
 
-export default function Sidebar({ open, onClose }: SidebarProps) {
+export default function SideSlide({ open, onClose }: SideSlideProps) {
   const backdropRef = useRef<HTMLDivElement>(null);
 
   // 외부 클릭 시 닫기
