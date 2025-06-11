@@ -1,13 +1,14 @@
-import NavItem from "~/common/components/NavItem";
+import NavItem from '~/common/components/ui/layout/NavItem';
 
 type NavProps = {
-  className?: string
-}
+  className?: string;
+};
 
 export default function Nav({ className = '' }: NavProps) {
   return (
-    <nav className={`flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-0 ${className}`}>
+    <nav className={`flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-0 ${className}`} role="navigation" aria-label="메인 메뉴">
       <NavItem label="양식 현황" to="/" />
+
       <NavItem
         label="입・출하관리"
         subMenu={[
@@ -17,6 +18,7 @@ export default function Nav({ className = '' }: NavProps) {
           { label: '이력 관리', to: '/diary/log' },
         ]}
       />
+
       <NavItem
         label="마이페이지"
         subMenu={[
@@ -29,5 +31,5 @@ export default function Nav({ className = '' }: NavProps) {
         className="lg:hidden"
       />
     </nav>
-  )
+  );
 }

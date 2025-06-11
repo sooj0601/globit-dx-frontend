@@ -1,12 +1,12 @@
 import {useState} from "react";
 import Container from "~/common/layouts/Container";
-import Input from "~/common/components/ui/Input";
-import PageTitle from "~/common/components/PageTitle";
-import PageUtilLine from "~/common/components/PageUtilLine";
-import CustomLabel from "~/common/components/ui/CustomLabel";
+import Input from "~/common/components/ui/form/Input";
+import PageTitle from "~/common/components/ui/layout/PageTitle";
+import PageUtilLine from "~/common/components/ui/layout/PageUtilLine";
+import CustomLabel from "~/common/components/ui/form/CustomLabel";
 import GroupItem from "~/common/components/modules/GroupItem";
-import {AccordionItem} from "~/common/components/modules/AccordionItem";
-import TableTd from "~/features/diary/components/table-td";
+import {Accordion} from "~/common/components/ui/layout/Accordion";
+import TableTd from "~/common/components/ui/table/TableTd";
 import ModalSetFeed from "~/features/diary/components/modal-set-feed";
 import ModalTankMove from "~/features/diary/components/modal-tank-move";
 import DensityAlert from "~/features/diary/components/density-alert";
@@ -18,14 +18,14 @@ export default function DiaryPage() {
   return (
     <>
       <PageTitle title="통합 관리" desc="통합 관리 페이지 입니다. 페이지 설명 텍스트가 들어갑니다." />
-      <PageUtilLine>
-        <div className="flex items-center gap-4 w-56 md:w-auto mx-auto md:mx-0">
-          <CustomLabel label="기준일자 선택" className="hidden md:flex"/>
-          <input id="date-pick" type="date" className="border-b border-slate-800 grow md:w-56 h-10 px-2" />
-        </div>
-      </PageUtilLine>
-      <GroupItemList />
       <Container>
+        <PageUtilLine>
+          <div className="flex items-center gap-4 w-56 md:w-auto mx-auto md:mx-0">
+            <CustomLabel label="기준일자 선택" className="hidden md:flex"/>
+            <input id="date-pick" type="date" className="border-b border-slate-800 grow md:w-56 h-10 px-2" />
+          </div>
+          <GroupItemList />
+        </PageUtilLine>
         <div className="flex flex-col gap-4 lg:gap-0">
           <div className="hidden lg:flex items-center px-4 py-2 text-sm font-semibold bg-slate-600 text-slate-300 rounded-3xl rounded-b-none gap-1">
             <div className="text-center flex-1">수조</div>
@@ -39,7 +39,7 @@ export default function DiaryPage() {
             <div className="text-center flex-1">밀식률(%)</div>
             <div className="text-center flex-1">총중량(kg)</div>
           </div>
-          <AccordionItem
+          <Accordion
             title="A-1"
             alwaysOpenOnPc
             header={
@@ -81,7 +81,7 @@ export default function DiaryPage() {
                 <Input type="text" number value="43" readOnly inputStyle="text-center"/>
               </TableTd>
             </div>
-          </AccordionItem>
+          </Accordion>
         </div>
       </Container>
       {/* 표출정보 수정 모달 */}

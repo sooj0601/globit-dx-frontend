@@ -3,7 +3,7 @@ import Nav from './Nav';
 import FarmSelect from '../components/modules/FarmSelect';
 import UserInfo from '../components/modules/UserInfo';
 import { X } from 'lucide-react';
-import NavItem from '../components/NavItem';
+import NavItem from '../components/ui/layout/NavItem';
 
 type SideSlideProps = {
   open: boolean;

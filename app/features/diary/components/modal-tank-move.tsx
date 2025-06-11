@@ -1,11 +1,11 @@
-import Modal from "~/common/components/ui/Modal";
-import CustomBtn from "~/common/components/ui/CustomBtn";
+import Modal from "~/common/components/ui/popup/Modal";
+import CustomBtn from "~/common/components/ui/form/CustomBtn";
 import ModalTankAlert from "~/features/diary/components/modal-tank-alert";
 import ModalSetFeed from "~/features/diary/components/modal-set-feed";
 import {useState} from "react";
-import TableTd from "~/features/diary/components/table-td";
-import Select from "~/common/components/ui/Select";
-import Input from "~/common/components/ui/Input";
+import TableTd from "~/common/components/ui/table/TableTd";
+import Select from "~/common/components/ui/form/Select";
+import Input from "~/common/components/ui/form/Input";
 import {Plus, Trash2} from "lucide-react";
 
 interface ModalTankMoveProps {

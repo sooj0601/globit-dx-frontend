@@ -1,7 +1,7 @@
 import InfoToggle from './info-toggle'
 import { useState } from 'react'
-import Popover from '~/common/components/ui/Popover'
-import CustomBtn from '~/common/components/ui/CustomBtn'
+import Popover from '~/common/components/ui/popup/Popover'
+import CustomBtn from '~/common/components/ui/form/CustomBtn'
 import { ClipboardPen } from 'lucide-react'
 
 export default function PopoverEditInfo() {

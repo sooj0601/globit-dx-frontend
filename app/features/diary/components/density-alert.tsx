@@ -1,4 +1,4 @@
-import Input from "~/common/components/ui/Input";
+import Input from "~/common/components/ui/form/Input";
 
 type DensityAlertProps = {
   variant?: 'green' | 'red' | 'yellow' | 'blue';

@@ -1,9 +1,9 @@
-import Modal from "~/common/components/ui/Modal";
-import CustomBtn from "~/common/components/ui/CustomBtn";
-import Select from "~/common/components/ui/Select";
+import Modal from "~/common/components/ui/popup/Modal";
+import CustomBtn from "~/common/components/ui/form/CustomBtn";
+import Select from "~/common/components/ui/form/Select";
 import {useState} from "react";
 import {CircleAlert} from "lucide-react";
-import InputSet from "~/common/components/modules/InputSet";
+import InputSet from "~/common/components/ui/form/InputSet";
 interface ModalTankAlertProps {
   isOpen: boolean;
   onClose: () => void;

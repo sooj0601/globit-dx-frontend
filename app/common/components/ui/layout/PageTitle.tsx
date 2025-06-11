@@ -6,7 +6,7 @@ type PageTitleProps = {
 
 export default function PageTitle({ title, desc, className = '' }: PageTitleProps) {
   return (
-    <div className={`w-full flex flex-col gap-2 py-4 md:py-0 item-center md:items-start md:mb-8 ${className}`}>
+    <div className={`w-full flex flex-col gap-2 pt-4 md:pt-0 item-center md:items-start mb-6 ${className}`}>
       <h2 className={`text-2xl md:text-3xl font-bold text-center md:text-left`}>
         {title}
       </h2>

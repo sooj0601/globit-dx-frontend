@@ -29,10 +29,16 @@ export default [
 
   // MARK: - 마이페이지
   ...prefix('mypage', [
-    route('', 'features/mypage/pages/info-page.tsx'),
-    route('feed', 'features/mypage/pages/feed-management.tsx'),
+    route('/info', 'features/mypage/pages/info-edit.tsx'),
+    ...prefix('feed', [
+      route('/', 'features/mypage/pages/feed/feed-management.tsx'),
+      route('/edit', 'features/mypage/pages/feed/feed-edit.tsx'),
+    ]),
     route('medicine', 'features/mypage/pages/medicine-management.tsx'),
-    route('farm', 'features/mypage/pages/farm-registration.tsx'),
+    ...prefix('farm', [
+      route('/', 'features/mypage/pages/farm/farm-management.tsx'),
+      route('/edit', 'features/mypage/pages/farm/farm-edit.tsx'),
+    ]),
     route('watertank', 'features/mypage/pages/water-tank-management.tsx'),
   ]),
 

@@ -1,4 +1,4 @@
-import CustomLabel from "~/common/components/ui/CustomLabel";
+import CustomLabel from "~/common/components/ui/form/CustomLabel";
 import GroupItem from "~/common/components/modules/GroupItem";
 
 type GroupItemListProps = {
@@ -7,7 +7,7 @@ type GroupItemListProps = {
 
 export default function GroupItemList({ className = '' }: GroupItemListProps) {
   return (
-    <div className={`flex flex-col gap-4 mt-6 py-6 border-t border-slate-300 ${className}`}>
+    <div className={`flex flex-col gap-4 pt-6 border-t border-slate-300 ${className}`}>
       <div className="flex flex-col lg:flex-row lg:items-center lg:gap-2 justify-between">
         <CustomLabel label="입식 그룹" />
         <span className={'text-sm lg:text-base text-slate-500 font-medium'}>
@@ -51,17 +51,17 @@ export default function GroupItemList({ className = '' }: GroupItemListProps) {
           colorName="pink"
         />
         <GroupItem
-          key="group-item-7"
+          key="group-item-8"
           name="2024-넙치-200030"
           colorName="slate"
         />
         <GroupItem
-          key="group-item-7"
+          key="group-item-9"
           name="2024-넙치-200030"
           colorName="brown"
         />
         <GroupItem
-          key="group-item-7"
+          key="group-item-10"
           name="2024-넙치-200030"
           colorName="orange"
         />

@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router';
+import { useLocation } from 'react-router';
 import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 
@@ -15,15 +15,20 @@ type NavItemProps = {
 };
 
 export default function NavItem({
-  label,
-  to,
-  subMenu,
-  className,
-}: NavItemProps) {
+                                  label,
+                                  to,
+                                  subMenu,
+                                  className,
+                                }: NavItemProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const location = useLocation();
+  const currentPath = location.pathname;
 
-  // 브레이크포인트 감지 (lg 미만이면 모바일로 취급)
+  const hasSubMenu = subMenu && subMenu.length > 0;
+
+  const isActive = to && (currentPath === to || currentPath.startsWith(to));
+
   useEffect(() => {
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth < 1024);
@@ -33,8 +38,6 @@ export default function NavItem({
     window.addEventListener('resize', checkIsMobile);
     return () => window.removeEventListener('resize', checkIsMobile);
   }, []);
-
-  const hasSubMenu = subMenu && subMenu.length > 0;
 
   return (
     <div
@@ -59,30 +62,27 @@ export default function NavItem({
           />
         </button>
       ) : (
-        <NavLink
-          to={to || '#'}
-          className={({ isActive }) =>
-            `flex items-center text-lg h-12 px-2 lg:px-4 py-2 ${
-              isActive ? 'font-bold' : 'font-medium'
-            }`
-          }
+        <a
+          href={to || '#'}
+          className={`
+            flex items-center text-lg h-12 px-2 lg:px-4 py-2
+            ${isActive ? 'font-bold' : 'font-medium'}
+          `}
         >
           {label}
-        </NavLink>
+        </a>
       )}
 
       {hasSubMenu && isOpen && (
-        <div
-          className={`relative lg:absolute lg:top-full lg:left-0 py-2 lg:py-2 lg:px-4 bg-white lg:shadow-md rounded-2xl w-40 z-10 transition-all duration-200`}
-        >
-          {subMenu!.map(({ label, to }) => (
-            <Link
+        <div className="relative lg:absolute lg:top-full lg:left-0 py-2 lg:py-2 lg:px-4 bg-white lg:shadow-md rounded-2xl w-40 z-10 transition-all duration-200">
+          {subMenu.map(({ label, to }) => (
+            <a
               key={to}
-              to={to}
+              href={to}
               className="block px-4 py-2 hover:bg-blue-50 hover:font-bold hover:text-blue-500 transition-colors duration-200"
             >
               {label}
-            </Link>
+            </a>
           ))}
         </div>
       )}

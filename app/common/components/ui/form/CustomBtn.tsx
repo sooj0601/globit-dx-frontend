@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 type CustomBtnProps = {
   size?: 'sm' | 'lg' | 'icon';
-  variant?: 'default' | 'primary' | 'secondary' | 'danger' | 'ghost';
+  variant?: 'default' | 'primary' | 'secondary' | 'danger' | 'ghost' | 'outline';
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   children?: ReactNode;
@@ -29,10 +29,10 @@ export default function CustomBtn({
   let sizeClass = '';
   switch (size) {
     case 'sm':
-      sizeClass = 'h-10 px-4 rounded-xl';
+      sizeClass = 'h-9 px-4 rounded-lg gap-2 ';
       break;
     case 'lg':
-      sizeClass = 'h-13 px-4 rounded-xl';
+      sizeClass = 'h-14 min-w-[136px] px-4 rounded-xl gap-2 ';
       break;
     case 'icon':
       sizeClass = 'size-7 flex items-center justify-center rounded-lg';
@@ -56,8 +56,11 @@ export default function CustomBtn({
     case 'ghost':
       variantClass = 'text-blue-500 hover:bg-slate-100';
       break;
+    case 'outline':
+      variantClass = 'border border-slate-800 bg-white hover:bg-slate-200';
+      break;
   }
-  const baseClass = `inline-flex items-center justify-center gap-2 font-bold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer ${sizeClass} ${variantClass} ${className}`;
+  const baseClass = `inline-flex items-center justify-center font-bold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer ${sizeClass} ${variantClass} ${className}`;
   const content = (
     <>
       {leftIcon && <span className="flex-shrink-0">{leftIcon}</span>}

@@ -10,7 +10,7 @@ export default function UserInfo({ className = '' }: UserInfoProps) {
     <div className={`inline-flex justify-end items-center gap-4 ${className}`}>
       <div className="py-1 rounded-3xl flex justify-center items-center gap-2.5">
         <UserRound size={16} className={'text-blue-500'} />
-        <Link to={'/mypage'} className={'hover:underline underline-offset-4'}>
+        <Link to={'/mypage/info'} className={'hover:underline underline-offset-4'}>
           <strong>김글빗</strong> 님 환영합니다.
         </Link>
       </div>

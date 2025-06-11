@@ -7,7 +7,7 @@ export default function ContainerLine({
     className = '', children
   }: ContainerProps) {
   return (
-    <div className={`flex flex-col pt-4 pb-16 ${className}`}>
+    <div className={`flex flex-col gap-6 ${className}`}>
       {children}
     </div>
   )

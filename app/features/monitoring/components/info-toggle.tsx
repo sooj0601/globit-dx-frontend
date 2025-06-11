@@ -1,4 +1,4 @@
-import Switch from '../../../common/components/ui/Switch';
+import Switch from '../../../common/components/ui/form/Switch';
 
 interface InfoToggleProps {
   label: string;

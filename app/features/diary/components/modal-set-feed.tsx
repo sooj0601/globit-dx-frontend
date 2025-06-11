@@ -1,11 +1,11 @@
-import Tabs from "~/common/components/modules/Tabs";
-import Modal from "~/common/components/ui/Modal";
-import CustomBtn from "~/common/components/ui/CustomBtn";
-import Select from "~/common/components/ui/Select";
-import Input from "~/common/components/ui/Input";
-import InputSet from "~/common/components/modules/InputSet";
+import Tabs from "~/common/components/ui/layout/Tabs";
+import Modal from "~/common/components/ui/popup/Modal";
+import CustomBtn from "~/common/components/ui/form/CustomBtn";
+import Select from "~/common/components/ui/form/Select";
+import Input from "~/common/components/ui/form/Input";
+import InputSet from "~/common/components/ui/form/InputSet";
 import {useState} from "react";
-import TableTd from "~/features/diary/components/table-td";
+import TableTd from "~/common/components/ui/table/TableTd";
 import TankName from "~/features/diary/components/tank-name";
 import {Plus, Trash2} from "lucide-react";
 
@@ -47,7 +47,7 @@ export default function ModalSetFeed({ isOpen, onClose }: ModalSetFeedProps) {
                   />
                 </InputSet>
                 <InputSet label="급이량 입력" variant="col">
-                  <Input className="grow" value=""/>
+                  <Input className="grow" unit="kg" value=""/>
                 </InputSet>
               </div>
           },

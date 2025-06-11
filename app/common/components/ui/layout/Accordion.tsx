@@ -14,7 +14,7 @@ type AccordionItemProps = {
   alwaysOpenOnPc?: boolean;
 }
 
-export function AccordionItem({ title, header, children, defaultOpen = true, btnControl, variant = 'slate', className, childControl, alwaysOpenOnPc = false }: AccordionItemProps) {
+export function Accordion({ title, header, children, defaultOpen = true, btnControl, variant = 'slate', className, childControl, alwaysOpenOnPc = false }: AccordionItemProps) {
   const isPc = useMediaQuery('(min-width: 1024px)') // lg 기준
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const forceOpen = alwaysOpenOnPc && isPc
@@ -59,7 +59,7 @@ export function AccordionItem({ title, header, children, defaultOpen = true, btn
     teal: 'text-teal-800',
     pink: 'text-pink-800',
   };
-  const baseStyle = 'w-full cursor-pointer rounded-2xl flex items-center justify-between h-12 md:h-15 px-4 font-bold'
+  const baseStyle = 'w-full cursor-pointer rounded-2xl flex items-center justify-between h-14 px-4 font-bold'
   return (
     <div className={`rounded-2xl overflow-hidden ${actualOpen ? openStyleMap[variant] : closeStyleMap[variant]} ${className}`}>
       {!forceOpen && (
@@ -82,7 +82,7 @@ export function AccordionItem({ title, header, children, defaultOpen = true, btn
 
       {forceOpen && (
         <div className={`${baseStyle} ${btnControl}`}>
-          <span className={`font-bold text-xl ${textStyle[variant]}`}>{title}</span>
+          <span className={`font-bold text-lg md:text-xl ${textStyle[variant]}`}>{title}</span>
           <div className="ml-auto">
             {header}
           </div>

@@ -1,6 +1,6 @@
 import InfoToggle from './info-toggle';
 import { useState } from 'react';
-import Modal from "~/common/components/ui/Modal";
+import Modal from "~/common/components/ui/popup/Modal";
 
 interface Props {
   isOpen: boolean;

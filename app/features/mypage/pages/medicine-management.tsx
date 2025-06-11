@@ -1,4 +1,4 @@
-import PageTitle from "~/common/components/PageTitle";
+import PageTitle from "~/common/components/ui/layout/PageTitle";
 
 export default function MedicineManagement() {
   return (

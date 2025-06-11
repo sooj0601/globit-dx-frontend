@@ -1,4 +1,4 @@
-import Input from "~/common/components/ui/Input";
+import Input from "~/common/components/ui/form/Input";
 
 type TankNameProps = {
   variant?: 'slate' | 'violet' | 'lime' | 'yellow' | 'cyan' | 'indigo' | 'teal' | 'pink'// 필요한 색상 미리 정의
