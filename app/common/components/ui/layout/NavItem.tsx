@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router';
+import {NavLink, useLocation} from 'react-router';
 import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 
@@ -62,15 +62,16 @@ export default function NavItem({
           />
         </button>
       ) : (
-        <a
-          href={to || '#'}
-          className={`
-            flex items-center text-lg h-12 px-2 lg:px-4 py-2
-            ${isActive ? 'font-bold' : 'font-medium'}
-          `}
+        <NavLink
+          to={to || '#'}
+          className={({ isActive }) =>
+            `flex items-center text-lg h-12 px-2 lg:px-4 py-2 ${className} ${
+              isActive ? 'font-bold text-blue-600' : 'font-medium'
+            }`
+          }
         >
           {label}
-        </a>
+        </NavLink>
       )}
 
       {hasSubMenu && isOpen && (

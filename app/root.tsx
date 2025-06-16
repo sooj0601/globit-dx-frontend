@@ -48,7 +48,7 @@ export default function App() {
   const location = useLocation();
   const isMyPage = location.pathname.startsWith('/mypage');
   const isAuth = location.pathname.startsWith('/auth');
-  const baseClass = 'w-full max-w-7xl mx-auto md:pt-10 px-4 md:py-12 md:px-6 grow relative';
+  const baseClass = 'w-full max-w-7xl mx-auto px-4 pb-10 md:px-6 md:py-12 grow relative';
   return isAuth ? (
     <div id="wrapper" className="w-full min-h-screen flex flex-col bg-blue-50 bg-[url(/assets/auth-bg.png)] bg-cover bg-center">
         <main className={`${baseClass}`}>

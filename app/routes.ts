@@ -32,9 +32,14 @@ export default [
     route('/info', 'features/mypage/pages/info-edit.tsx'),
     ...prefix('feed', [
       route('/', 'features/mypage/pages/feed/feed-management.tsx'),
+      route('/detail', 'features/mypage/pages/feed/feed-detail.tsx'),
       route('/edit', 'features/mypage/pages/feed/feed-edit.tsx'),
     ]),
-    route('medicine', 'features/mypage/pages/medicine-management.tsx'),
+    ...prefix('medicine', [
+      route('/', 'features/mypage/pages/medicine/medicine-management.tsx'),
+      route('/detail', 'features/mypage/pages/medicine/medicine-detail.tsx'),
+      route('/edit', 'features/mypage/pages/medicine/medicine-edit.tsx'),
+    ]),
     ...prefix('farm', [
       route('/', 'features/mypage/pages/farm/farm-management.tsx'),
       route('/edit', 'features/mypage/pages/farm/farm-edit.tsx'),

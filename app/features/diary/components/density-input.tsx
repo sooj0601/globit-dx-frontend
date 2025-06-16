@@ -5,7 +5,7 @@ type DensityAlertProps = {
   value?: string;
 }
 
-export default function DensityAlert({ variant = 'green', value }: DensityAlertProps) {
+export default function DensityInput({ variant = 'green', value }: DensityAlertProps) {
   const colorMap = {
     green: '!border-0 !bg-green-100 text-green-500',
     red: '!border-0 !bg-rose-200 text-rose-500',

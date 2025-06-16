@@ -18,52 +18,52 @@ export default function GroupItemList({ className = '' }: GroupItemListProps) {
         <GroupItem
           key="group-item-1"
           name="2024-넙치-200030"
-          colorName="violet"
+          variant="violet"
         />
         <GroupItem
           key="group-item-2"
           name="2024-넙치-200030"
-          colorName="lime"
+          variant="lime"
         />
         <GroupItem
           key="group-item-3"
           name="2024-넙치-200030"
-          colorName="yellow"
+          variant="yellow"
         />
         <GroupItem
           key="group-item-4"
           name="2024-넙치-200030"
-          colorName="cyan"
+          variant="cyan"
         />
         <GroupItem
           key="group-item-5"
           name="2024-넙치-200030"
-          colorName="indigo"
+          variant="indigo"
         />
         <GroupItem
           key="group-item-6"
           name="2024-넙치-200030"
-          colorName="teal"
+          variant="teal"
         />
         <GroupItem
           key="group-item-7"
           name="2024-넙치-200030"
-          colorName="pink"
+          variant="pink"
         />
         <GroupItem
           key="group-item-8"
           name="2024-넙치-200030"
-          colorName="slate"
+          variant="slate"
         />
         <GroupItem
           key="group-item-9"
           name="2024-넙치-200030"
-          colorName="brown"
+          variant="brown"
         />
         <GroupItem
           key="group-item-10"
           name="2024-넙치-200030"
-          colorName="orange"
+          variant="orange"
         />
       </div>
     </div>

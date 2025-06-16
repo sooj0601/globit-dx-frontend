@@ -5,13 +5,13 @@ import InputSet from "~/common/components/ui/form/InputSet";
 import InputGroup from "~/common/components/ui/form/InputGroup";
 import RequireGuide from "~/common/components/modules/RequireGuide";
 import CustomBtn from "~/common/components/ui/form/CustomBtn";
-import {Paperclip, Mail, Plus, Trash2} from "lucide-react";
+import {Plus, Trash2} from "lucide-react";
 import {TableRow} from "~/common/components/ui/table/TableRow";
 import TableTd from "~/common/components/ui/table/TableTd";
 import Select from "~/common/components/ui/form/Select";
 import {useState} from "react";
-import CustomLabel from "~/common/components/ui/form/CustomLabel";
 import CustomTable from "~/common/components/ui/table/CustomTable";
+import BtnWrap from "~/common/components/ui/form/BtnWrap";
 
 
 
@@ -27,7 +27,7 @@ export default function SalePage() {
           <RequireGuide />
           <InputGroup>
             <InputSet label="출하 이름" className="md:col-span-2">
-              <Input type="text" readOnly value="20250000-넙치-00001" className="grow max-w-[472px]"/>
+              <Input type="text" readOnly value="20250000-넙치-00001" className="grow max-w-[452px]"/>
             </InputSet>
             <InputSet label="출하일자 선택" required>
               <Select
@@ -59,9 +59,9 @@ export default function SalePage() {
               tableHead={
                 <>
                   <div className="text-center flex-1">수조 선택</div>
-                  <div className="text-center flex-1">출하 무게(kg)</div>
-                  <div className="text-center flex-1">평균 무게(kg)</div>
-                  <div className="text-center flex-1">단가(원)</div>
+                  <div className="text-center flex-1">출하 무게</div>
+                  <div className="text-center flex-1">평균 무게</div>
+                  <div className="text-center flex-1">단가</div>
                   <div className="text-center flex-1">출하미수</div>
                   <div className="text-center w-7"></div>
                 </>
@@ -71,7 +71,7 @@ export default function SalePage() {
               }
               className="md:col-span-2"
             >
-            <TableRow header={<CustomBtn variant="ghost" rightIcon={<Trash2 size={16}/>} className="text-rose-500 !px-0 text-sm !gap-1">삭제</CustomBtn>}>
+              <TableRow variant="slate" header={<CustomBtn variant="ghost" size="xs" rightIcon={<Trash2 size={16}/>} className="text-rose-500">삭제</CustomBtn>}>
                 <TableTd label="수조 선택" className="flex-1 justify-center">
                   <Select
                     name="tankName"
@@ -118,9 +118,9 @@ export default function SalePage() {
               <Input type="text" unit="원" number value="9,000,000" className="grow"/>
             </InputSet>
           </InputGroup>
-          <div className="sticky bottom-0 inset-x-0 pb-8 pt-10 md:relative flex flex-col md:flex-row items-center md:justify-between gap-2 bg-white">
+          <BtnWrap>
             <CustomBtn size="lg" variant="primary" className="grow w-full ml-auto md:grow-0 md:w-auto" >저장</CustomBtn>
-          </div>
+          </BtnWrap>
         </div>
       </Container>
     </>

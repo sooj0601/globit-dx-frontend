@@ -20,6 +20,7 @@ export default function PopoverEditInfo() {
           표출 정보 수정
         </CustomBtn>
       }
+      className="w-64"
     >
       <div className="flex flex-col gap-2">
         <InfoToggle label="밀식도" enabled={enabled1} onChange={setEnabled1} />

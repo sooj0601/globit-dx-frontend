@@ -11,6 +11,7 @@ import {Plus} from "lucide-react";
 import SelectableInput from "~/common/components/ui/form/SelectableInput";
 import Pagination from "~/common/components/ui/table/Pagination";
 import CustomBadge from "~/common/components/ui/form/CustomBadge";
+import BtnWrap from "~/common/components/ui/form/BtnWrap";
 
 export default function FarmManagement() {
   const [selectedFarms, setSelectedFarms] = useState<string[]>(['farm-001']);
@@ -102,7 +103,7 @@ export default function FarmManagement() {
                 가나군 가나면 가나리 21
               </TableTd>
               <TableTd label="승인여부" className="w-32 lg:justify-center">
-                <CustomBadge variant="green">승인</CustomBadge>
+                <CustomBadge color="green">승인</CustomBadge>
               </TableTd>
           </TableRow>
           <TableRow
@@ -152,15 +153,15 @@ export default function FarmManagement() {
                 가나군 가나면 가나리 21
               </TableTd>
               <TableTd label="승인여부" className="w-32 lg:justify-center">
-                <CustomBadge variant="gray">대기중</CustomBadge>
+                <CustomBadge color="gray">대기중</CustomBadge>
               </TableTd>
           </TableRow>
         </CustomTable>
         <Pagination currentPage={1} totalPages={5}/>
-        <div className="sticky bottom-0 inset-x-0 pb-8 pt-4 md:relative flex flex-col md:flex-row items-center md:justify-between gap-2 bg-white">
+        <BtnWrap className="md:!pt-6">
           <CustomBtn size="lg" variant="outline" className="grow w-full md:grow-0 md:w-auto" >선택 삭제</CustomBtn>
           <CustomBtn to="/mypage/farm/edit" size="lg" variant="primary" className="grow w-full md:grow-0 md:w-auto md:hidden" >양식장 추가</CustomBtn>
-        </div>
+        </BtnWrap>
       </Container>
     </>
   )

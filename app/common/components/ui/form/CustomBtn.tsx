@@ -2,14 +2,14 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { Link } from 'react-router';
 
 type CustomBtnProps = {
-  size?: 'sm' | 'lg' | 'icon';
+  size?: 'xs' | 'sm' | 'lg' | 'icon';
   variant?: 'default' | 'primary' | 'secondary' | 'danger' | 'ghost' | 'outline';
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   children?: ReactNode;
   className?: string;
   to?: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
@@ -28,11 +28,14 @@ export default function CustomBtn({
 }: CustomBtnProps) {
   let sizeClass = '';
   switch (size) {
+    case 'xs':
+      sizeClass = 'h-5 text-sm gap-1 ';
+      break;
     case 'sm':
-      sizeClass = 'h-9 px-4 rounded-lg gap-2 ';
+      sizeClass = 'h-9 px-3 rounded-lg gap-2 ';
       break;
     case 'lg':
-      sizeClass = 'h-14 min-w-[136px] px-4 rounded-xl gap-2 ';
+      sizeClass = 'h-12 md:h-14 min-w-[136px] px-4 rounded-xl gap-2 ';
       break;
     case 'icon':
       sizeClass = 'size-7 flex items-center justify-center rounded-lg';
@@ -45,7 +48,7 @@ export default function CustomBtn({
       variantClass = 'bg-slate-800 text-white hover:bg-slate-700';
       break;
     case 'primary':
-      variantClass = 'bg-blue-600 text-white hover:bg-blue-700';
+      variantClass = 'bg-blue-500 text-white hover:bg-blue-700';
       break;
     case 'secondary':
       variantClass = 'bg-gray-100 text-gray-800 hover:bg-gray-200';

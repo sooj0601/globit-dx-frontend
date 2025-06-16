@@ -1,84 +1,39 @@
-import { Form } from 'react-router';
-import Cookie from 'js-cookie';
+import CustomBtn from "~/common/components/ui/form/CustomBtn";
+import InputGroup from "~/common/components/ui/form/InputGroup";
+import InputSet from "~/common/components/ui/form/InputSet";
+import Input from "~/common/components/ui/form/Input";
 
-type LoginForm = {
-  email: string;
-  password: string;
-};
-
-export async function clientAction({ request }: { request: Request }) {
-  const formData = await request.formData();
-  const email = formData.get('email');
-  const password = formData.get('password');
-
-  const response = await fetch('/api/users/login', {
-    method: 'POST',
-    body: JSON.stringify({ email, password }),
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRFToken': Cookie.get('csrftoken') || '',
-    },
-  });
-
-  console.log(response);
-
-  console.log(email, password);
-}
 
 export default function Login() {
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
-        <div className="bg-white px-6 py-12 shadow-sm sm:rounded-lg sm:px-12">
-          <Form method="POST" className="space-y-6">
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm/6 font-medium text-gray-900"
-              >
-                Email address
-              </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                />
-              </div>
-            </div>
+    <div className="flex flex-col justify-center gap-4 fixed inset-0 bg-white p-6 md:rounded-2xl md:p-10 md:w-[460px] md:h-fit md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:shadow-lg md:shadow-blue-800/10">
 
-            <div>
-              <label
-                htmlFor="password"
-                className="block text-sm/6 font-medium text-gray-900"
-              >
-                Password
-              </label>
-              <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                  autoComplete="current-password"
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                />
-              </div>
-            </div>
+      <img src="/assets/logo-vertical.svg" alt="양식통 로고" className="w-36 mx-auto -mt-20 md:mt-0" />
 
-            <div>
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                로그인
-              </button>
-            </div>
-          </Form>
-        </div>
+      <InputGroup variant="col" className="!p-0">
+        <InputSet label="아이디" variant="col">
+          <Input type="text" className="grow" />
+        </InputSet>
+        <InputSet label="비밀번호" variant="col">
+          <Input type="password" className="grow" />
+        </InputSet>
+      </InputGroup>
+
+      <div className="flex justify-end items-center w-full">
+        <CustomBtn variant="ghost" size="sm" className="!p-0 underline text-slate-500">
+          비밀번호 찾기
+        </CustomBtn>
+      </div>
+
+      <CustomBtn variant="primary" size="lg" className="w-full">
+        로그인
+      </CustomBtn>
+
+      <div className="flex justify-between items-center w-full">
+        <p className="text-slate-500">아직 회원이 아니신가요?</p>
+        <CustomBtn variant="ghost" size="sm" color="primary" className="!p-0">
+          회원가입 하기
+        </CustomBtn>
       </div>
     </div>
   );

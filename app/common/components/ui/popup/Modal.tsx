@@ -4,7 +4,7 @@ import { X } from 'lucide-react'
 interface ModalProps {
   onClose: () => void;
   title: string;
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
   children: React.ReactNode;
   zIndex?: number;
 }
@@ -20,7 +20,8 @@ function Modal({ onClose, title, size = "md", children, zIndex = 60 }: ModalProp
   }, []);
   let sizeClass = "md:w-[480px]";
   if (size === "sm") sizeClass = "md:w-[400px]";
-  else if (size === "lg") sizeClass = "md:w-[600px]";
+  else if (size === "lg") sizeClass = "md:w-[480px]";
+  else if (size === "xl") sizeClass = "md:w-[660px]";
 
   return (
     <>
@@ -31,7 +32,7 @@ function Modal({ onClose, title, size = "md", children, zIndex = 60 }: ModalProp
       />
       <div
         className={`
-          fixed left-4 right-4 top-1/2 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 
+          fixed inset-x-4 top-1/2 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 
           bg-white rounded-2xl md:rounded-3xl shadow-lg p-6
           max-h-[80vh] overflow-auto
           w-auto flex flex-col gap-6

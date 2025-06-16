@@ -15,6 +15,9 @@ type InputProps = {
   onClick?: () => void;
   unit?: string;
   number?: boolean;
+  id?: string;
+  required?: boolean;
+  autoComplete?: string;
 };
 
 const Input: React.FC<InputProps> = ({
@@ -31,6 +34,9 @@ const Input: React.FC<InputProps> = ({
     onClick,
     unit,
     number = false,
+    id,
+    required = false,
+    autoComplete = 'off',
   }) => {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = type === 'password';
@@ -59,6 +65,9 @@ const Input: React.FC<InputProps> = ({
           onChange={onChange}
           disabled={disabled}
           readOnly={readOnly}
+          id={id}
+          required={required}
+          autoComplete={autoComplete}
           className={`w-full h-9 file:px-4 file:py-1 file:bg-slate-200 file:border file:border-slate-300
             text-sm rounded-lg border border-slate-300 ${inputStyle}`}
         />
@@ -80,7 +89,9 @@ const Input: React.FC<InputProps> = ({
           disabled={disabled}
           readOnly={readOnly}
           inputMode={number ? 'numeric' : undefined}
-          autoComplete="off"
+          id={id}
+          required={required}
+          autoComplete={autoComplete}
           className={`w-full h-9 ${hasRightElement ? 'pr-6' : 'pr-2'}  pl-2 border rounded-lg outline-none transition-all
             ${error ? 'border-rose-500' : 'border-slate-300'}
             ${disabled ? 'cursor-not-allowed text-slate-400 bg-slate-100'

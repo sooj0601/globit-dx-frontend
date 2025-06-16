@@ -15,7 +15,7 @@ import StatusSelect from "~/features/mypage/components/status-select";
 import {useState} from "react";
 import {Pill} from "lucide-react";
 
-export default function FeedManagement() {
+export default function MedicineManagement() {
   const [status1, setStatus1] = useState('사용');
   const [status2, setStatus2] = useState('미사용');
   const [status3, setStatus3] = useState('미사용');
@@ -23,22 +23,14 @@ export default function FeedManagement() {
   const [status5, setStatus5] = useState('사용');
   return (
     <>
-      <PageTitle title="사료 관리" desc="사료 관리 페이지 입니다. 페이지 설명 텍스트가 들어갑니다." />
+      <PageTitle title="약품 관리" desc="약품 관리 페이지 입니다. 페이지 설명 텍스트가 들어갑니다." />
       <Container>
         <PageUtilLine>
           <div className="w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-            <Input type="search" placeholder="사료이름 검색" className="w-full md:w-auto"  />
+            <Input type="search" placeholder="약품이름 검색" className="w-full md:w-auto"  />
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-end gap-4 lg:gap-8">
               <div className="flex items-center grow">
-                <CustomLabel label="혼합/일반"/>
-                <select className="border-b border-slate-800 grow md:w-40 h-9 px-2">
-                  <option value="all">전체</option>
-                  <option value="mixed">혼합</option>
-                  <option value="general">일반</option>
-                </select>
-              </div>
-              <div className="flex items-center grow">
-                <CustomLabel label="사용여부"/>
+                <CustomLabel label="보유여부"/>
                 <select className="border-b border-slate-800 grow md:w-40 h-9 px-2">
                   <option value="all">전체</option>
                   <option value="used">사용</option>
@@ -52,13 +44,11 @@ export default function FeedManagement() {
           tableHead={
             <>
               <div className="text-center w-7">#</div>
-              <div className="text-center w-24">구매일자</div>
+              <div className="text-center flex-1">구매일자</div>
               <div className="text-center flex-1">이름</div>
-              <div className="text-center w-30">혼합 정보</div>
-              <div className="text-center w-24">현재 보유량(g)</div>
-              <div className="text-center w-24">최초 구매량(g)</div>
-              <div className="text-center flex-1">혼합/일반</div>
-              <div className="text-center flex-1">사료구분</div>
+              <div className="text-center flex-1">현재 보유량(g)</div>
+              <div className="text-center flex-1">최초 구매량(g)</div>
+              <div className="text-center flex-1">약품구분</div>
               <div className="text-center flex-1">사용여부</div>
               <div className="text-center flex-1">구매처</div>
             </>
@@ -71,30 +61,22 @@ export default function FeedManagement() {
             <TableTd className="!hidden lg:!flex w-7" >
               <p className="grow lg:text-center">1</p>
             </TableTd>
-            <TableTd label="구매일자" className="lg:w-24 flex-1 col-span-2">
-              <Link to="/mypage/feed/detail" className="grow lg:text-center text-slate-500 underline text-nowrap">2025-05-03</Link>
+            <TableTd label="구매일자" className="flex-1 col-span-2">
+              <Link to="/mypage/medicine/detail" className="grow lg:text-center text-slate-500 underline text-nowrap">2025-05-03</Link>
             </TableTd>
             <TableTd label="이름" className="!hidden lg:!flex flex-1">
               <p className="grow lg:text-center font-bold text-ellipsis">사료1</p>
             </TableTd>
-            <TableTd label="혼합 정보" className="!hidden lg:!flex w-30">
-              <Link to="/mypage/feed/edit" className="grow lg:text-center font-bold underline overflow-hidden text-ellipsis text-nowrap">사료2, 약품1, 사료3, 사료3</Link>
-            </TableTd>
-            <TableTd label="현재 보유량" className="lg:w-24 flex-1">
+            <TableTd label="현재 보유량" className="flex-1">
               <p className="grow lg:text-center">94,203g</p>
             </TableTd>
-            <TableTd label="최초 구매량" className="lg:w-24 flex-1">
+            <TableTd label="최초 구매량" className="flex-1">
               <p className="grow lg:text-center">94,203g</p>
             </TableTd>
-            <TableTd label="혼합/일반" className="lg:w-24 flex-1">
-              <div className="flex grow lg:items-center lg:justify-center">
-                <CustomBadge variant="filled">일반</CustomBadge>
-              </div>
+            <TableTd label="약품구분" className="flex-1">
+              <p className="grow lg:text-center">의약품</p>
             </TableTd>
-            <TableTd label="사료구분" className="flex-1">
-              <p className="grow lg:text-center">생사료</p>
-            </TableTd>
-            <TableTd label="사용여부" className="flex-1 col-span-2">
+            <TableTd label="사용여부" className="flex-1 lg:justify-center col-span-2">
               <StatusSelect value={status1} onChange={setStatus1} className="!w-24" />
             </TableTd>
             <TableTd label="구매처" className="flex-1">
@@ -110,30 +92,22 @@ export default function FeedManagement() {
               <p className="grow lg:text-center">1</p>
             </TableTd>
             <TableTd label="구매일자" className="flex-1 col-span-2">
-              <Link to="/mypage/feed/detail" className="grow lg:text-center text-slate-500 underline text-nowrap lg:w-24">2025-05-03</Link>
+              <Link to="/mypage/medicine/detail" className="grow lg:text-center text-slate-500 underline text-nowrap">2025-05-03</Link>
             </TableTd>
             <TableTd label="이름" className="!hidden lg:!flex flex-1">
               <p className="grow lg:text-center font-bold text-ellipsis">사료1</p>
             </TableTd>
-            <TableTd label="혼합 정보" className="!hidden lg:!flex w-30">
-              <Link to="/mypage/feed/edit" className="grow lg:text-center font-bold underline overflow-hidden text-ellipsis text-nowrap">사료2, 약품1, 사료3, 사료3</Link>
-            </TableTd>
-            <TableTd label="현재 보유량" className="lg:w-24 flex-1">
+            <TableTd label="현재 보유량" className="flex-1">
               <p className="grow lg:text-center">94,203g</p>
             </TableTd>
-            <TableTd label="최초 구매량" className="lg:w-24 flex-1">
+            <TableTd label="최초 구매량" className="flex-1">
               <p className="grow lg:text-center">94,203g</p>
             </TableTd>
-            <TableTd label="혼합/일반" className="lg:w-24 flex-1">
-              <div className="flex grow lg:items-center lg:justify-center">
-                <CustomBadge variant="filled" color="teal" rightIcon={<Pill size={16}/>}>혼합</CustomBadge>
-              </div>
+            <TableTd label="약품구분" className="flex-1">
+              <p className="grow lg:text-center">영양제</p>
             </TableTd>
-            <TableTd label="사료구분" className="flex-1">
-              <p className="grow lg:text-center">생사료</p>
-            </TableTd>
-            <TableTd label="사용여부" className="flex-1 col-span-2">
-              <StatusSelect value={status2} onChange={setStatus2} className="!w-24"/>
+            <TableTd label="사용여부" className="flex-1 lg:justify-center col-span-2">
+              <StatusSelect value={status2} onChange={setStatus2} className="!w-24" />
             </TableTd>
             <TableTd label="구매처" className="flex-1">
               <p className="grow lg:text-center">-</p>
@@ -148,30 +122,22 @@ export default function FeedManagement() {
               <p className="grow lg:text-center">1</p>
             </TableTd>
             <TableTd label="구매일자" className="flex-1 col-span-2">
-              <Link to="/mypage/feed/detail" className="grow lg:text-center text-slate-500 underline text-nowrap lg:w-24">2025-05-03</Link>
+              <Link to="/mypage/medicine/detail" className="grow lg:text-center text-slate-500 underline text-nowrap">2025-05-03</Link>
             </TableTd>
             <TableTd label="이름" className="!hidden lg:!flex flex-1">
               <p className="grow lg:text-center font-bold text-ellipsis">사료1</p>
             </TableTd>
-            <TableTd label="혼합 정보" className="!hidden lg:!flex w-30">
-              <Link to="/mypage/feed/edit" className="grow lg:text-center font-bold underline overflow-hidden text-ellipsis text-nowrap">사료2, 약품1, 사료3, 사료3</Link>
-            </TableTd>
-            <TableTd label="현재 보유량" className="lg:w-24 flex-1">
+            <TableTd label="현재 보유량" className="flex-1">
               <p className="grow lg:text-center">94,203g</p>
             </TableTd>
-            <TableTd label="최초 구매량" className="lg:w-24 flex-1">
+            <TableTd label="최초 구매량" className="flex-1">
               <p className="grow lg:text-center">94,203g</p>
             </TableTd>
-            <TableTd label="혼합/일반" className="lg:w-24 flex-1">
-              <div className="flex grow lg:items-center lg:justify-center">
-                <CustomBadge variant="filled" color="teal" rightIcon={<Pill size={16}/>}>혼합</CustomBadge>
-              </div>
+            <TableTd label="약품구분" className="flex-1">
+              <p className="grow lg:text-center">비타민</p>
             </TableTd>
-            <TableTd label="사료구분" className="flex-1">
-              <p className="grow lg:text-center">생사료</p>
-            </TableTd>
-            <TableTd label="사용여부" className="flex-1 col-span-2">
-              <StatusSelect value={status3} onChange={setStatus3} className="!w-24"/>
+            <TableTd label="사용여부" className="flex-1 lg:justify-center col-span-2">
+              <StatusSelect value={status3} onChange={setStatus3} className="!w-24" />
             </TableTd>
             <TableTd label="구매처" className="flex-1">
               <p className="grow lg:text-center">-</p>
@@ -186,30 +152,22 @@ export default function FeedManagement() {
               <p className="grow lg:text-center">1</p>
             </TableTd>
             <TableTd label="구매일자" className="flex-1 col-span-2">
-              <Link to="/mypage/feed/detail" className="grow lg:text-center text-slate-500 underline text-nowrap lg:w-24">2025-05-03</Link>
+              <Link to="/mypage/medicine/detail" className="grow lg:text-center text-slate-500 underline text-nowrap">2025-05-03</Link>
             </TableTd>
             <TableTd label="이름" className="!hidden lg:!flex flex-1">
               <p className="grow lg:text-center font-bold text-ellipsis">사료1</p>
             </TableTd>
-            <TableTd label="혼합 정보" className="!hidden lg:!flex w-30">
-              <Link to="/mypage/feed/edit" className="grow lg:text-center font-bold underline overflow-hidden text-ellipsis text-nowrap">사료2, 약품1, 사료3, 사료3</Link>
-            </TableTd>
-            <TableTd label="현재 보유량" className="lg:w-24 flex-1">
+            <TableTd label="현재 보유량" className="flex-1">
               <p className="grow lg:text-center">94,203g</p>
             </TableTd>
-            <TableTd label="최초 구매량" className="lg:w-24 flex-1">
+            <TableTd label="최초 구매량" className="flex-1">
               <p className="grow lg:text-center">94,203g</p>
             </TableTd>
-            <TableTd label="혼합/일반" className="lg:w-24 flex-1">
-              <div className="flex grow lg:items-center lg:justify-center">
-                <CustomBadge variant="filled">일반</CustomBadge>
-              </div>
+            <TableTd label="약품구분" className="flex-1">
+              <p className="grow lg:text-center">의약품</p>
             </TableTd>
-            <TableTd label="사료구분" className="flex-1">
-              <p className="grow lg:text-center">생사료</p>
-            </TableTd>
-            <TableTd label="사용여부" className="flex-1 col-span-2">
-              <StatusSelect value={status4} onChange={setStatus4} className="!w-24"/>
+            <TableTd label="사용여부" className="flex-1 lg:justify-center col-span-2">
+              <StatusSelect value={status4} onChange={setStatus4} className="!w-24" />
             </TableTd>
             <TableTd label="구매처" className="flex-1">
               <p className="grow lg:text-center">-</p>
@@ -224,30 +182,22 @@ export default function FeedManagement() {
               <p className="grow lg:text-center">1</p>
             </TableTd>
             <TableTd label="구매일자" className="flex-1 col-span-2">
-              <Link to="/mypage/feed/detail" className="grow lg:text-center text-slate-500 underline text-nowrap lg:w-24">2025-05-03</Link>
+              <Link to="/mypage/medicine/detail" className="grow lg:text-center text-slate-500 underline text-nowrap">2025-05-03</Link>
             </TableTd>
             <TableTd label="이름" className="!hidden lg:!flex flex-1">
               <p className="grow lg:text-center font-bold text-ellipsis">사료1</p>
             </TableTd>
-            <TableTd label="혼합 정보" className="!hidden lg:!flex w-30">
-              <Link to="/mypage/feed/edit" className="grow lg:text-center font-bold underline overflow-hidden text-ellipsis text-nowrap">사료2, 약품1, 사료3, 사료3</Link>
-            </TableTd>
-            <TableTd label="현재 보유량" className="lg:w-24 flex-1">
+            <TableTd label="현재 보유량" className="flex-1">
               <p className="grow lg:text-center">94,203g</p>
             </TableTd>
-            <TableTd label="최초 구매량" className="lg:w-24 flex-1">
+            <TableTd label="최초 구매량" className="flex-1">
               <p className="grow lg:text-center">94,203g</p>
             </TableTd>
-            <TableTd label="혼합/일반" className="lg:w-24 flex-1">
-              <div className="flex grow lg:items-center lg:justify-center">
-                <CustomBadge variant="filled" color="primary" >혼합</CustomBadge>
-              </div>
+            <TableTd label="약품구분" className="flex-1">
+              <p className="grow lg:text-center">의약품</p>
             </TableTd>
-            <TableTd label="사료구분" className="flex-1">
-              <p className="grow lg:text-center">생사료</p>
-            </TableTd>
-            <TableTd label="사용여부" className="flex-1 col-span-2">
-              <StatusSelect value={status5} onChange={setStatus5} className="!w-24"/>
+            <TableTd label="사용여부" className="flex-1 lg:justify-center col-span-2">
+              <StatusSelect value={status5} onChange={setStatus5} className="!w-24" />
             </TableTd>
             <TableTd label="구매처" className="flex-1">
               <p className="grow lg:text-center">-</p>
@@ -256,7 +206,7 @@ export default function FeedManagement() {
         </CustomTable>
         <Pagination currentPage={1} totalPages={5}/>
         <BtnWrap className="md:!pt-6">
-          <CustomBtn to="/mypage/feed/edit" size="lg" variant="primary" className="grow w-full ml-auto md:grow-0 md:w-auto" >사료 추가</CustomBtn>
+          <CustomBtn to="/mypage/medicine/edit" size="lg" variant="primary" className="grow w-full ml-auto md:grow-0 md:w-auto" >약품 추가</CustomBtn>
         </BtnWrap>
       </Container>
     </>

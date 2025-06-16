@@ -9,6 +9,7 @@ import {Paperclip, Mail, Plus, Trash2} from "lucide-react";
 import {TableRow} from "~/common/components/ui/table/TableRow";
 import CustomTable from "~/common/components/ui/table/CustomTable";
 import TableTd from "~/common/components/ui/table/TableTd";
+import BtnWrap from "~/common/components/ui/form/BtnWrap";
 
 
 
@@ -66,7 +67,8 @@ export default function FarmEdit() {
             className="md:col-span-2"
           >
             <TableRow
-              header={<CustomBtn variant="ghost" rightIcon={<Trash2 size={16}/>} className="text-rose-500 !px-0 text-sm !gap-1">삭제</CustomBtn>}>
+              variant="slate"
+              header={<CustomBtn variant="ghost" size="xs" rightIcon={<Trash2 size={16}/>} className="text-rose-500">삭제</CustomBtn>}>
               <TableTd label="동이름" className="flex-1 justify-center">
                 <Input value="A동" className="max-w-[160px]" />
               </TableTd>
@@ -81,7 +83,8 @@ export default function FarmEdit() {
               </TableTd>
             </TableRow>
             <TableRow
-              header={<CustomBtn variant="ghost" rightIcon={<Trash2 size={16}/>} className="text-rose-500 !px-0 text-sm !gap-1">삭제</CustomBtn>}>
+              variant="slate"
+              header={<CustomBtn variant="ghost" size="xs" rightIcon={<Trash2 size={16}/>} className="text-rose-500">삭제</CustomBtn>}>
               <TableTd label="동이름" className="flex-1 justify-center">
                 <Input value="A동" className="max-w-[160px]" />
               </TableTd>
@@ -97,9 +100,9 @@ export default function FarmEdit() {
             </TableRow>
           </CustomTable>
         </InputGroup>
-        <div className="sticky bottom-0 inset-x-0 pb-8 pt-10 md:relative flex flex-col md:flex-row items-center md:justify-between gap-2 bg-white">
+        <BtnWrap>
           <CustomBtn to="/mypage/farm" size="lg" variant="primary" className="grow w-full ml-auto md:grow-0 md:w-auto" >양식장 추가</CustomBtn>
-        </div>
+        </BtnWrap>
       </div>
     </Container>
     </>

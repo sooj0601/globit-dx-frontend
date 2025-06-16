@@ -22,7 +22,7 @@ export default function Nav({ className = '' }: NavProps) {
       <NavItem
         label="마이페이지"
         subMenu={[
-          { label: '내 정보 관리', to: '/mypage' },
+          { label: '내 정보 관리', to: '/mypage/info' },
           { label: '사료 관리', to: '/mypage/feed' },
           { label: '약품 관리', to: '/mypage/medicine' },
           { label: '양식장 등록 관리', to: '/mypage/farm' },
