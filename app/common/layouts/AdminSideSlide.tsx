@@ -1,6 +1,4 @@
 import { useEffect, useRef } from 'react';
-import Nav from './Nav';
-import FarmSelect from '../components/modules/FarmSelect';
 import UserInfo from '../components/modules/UserInfo';
 import { X } from 'lucide-react';
 import NavItem from '../components/ui/layout/NavItem';
@@ -11,7 +9,7 @@ type SideSlideProps = {
   onClose: () => void;
 };
 
-export default function SideSlide({ open, onClose }: SideSlideProps) {
+export default function AdminSideSlide({ open, onClose }: SideSlideProps) {
   const backdropRef = useRef<HTMLDivElement>(null);
 
   // 외부 클릭 시 닫기
@@ -58,9 +56,8 @@ export default function SideSlide({ open, onClose }: SideSlideProps) {
               <X size={32} strokeWidth={1.5} />
             </button>
           </div>
-          <FarmSelect className="w-full block md:hidden" />
         </div>
-        <Nav />
+        <AdminNav />
         <div className="border-t border-slate-300"></div>
         <NavItem label="로그아웃" to="/logout" />
       </div>

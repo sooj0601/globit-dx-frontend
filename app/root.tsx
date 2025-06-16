@@ -10,6 +10,7 @@ import {
 import type { Route } from './+types/root';
 import './app.css';
 import Header from './common/layouts/Header';
+import AdminHeader from './common/layouts/AdminHeader';
 import MypageMenu from './common/layouts/MypageMenu';
 
 export const links: Route.LinksFunction = () => [
@@ -48,14 +49,28 @@ export default function App() {
   const location = useLocation();
   const isMyPage = location.pathname.startsWith('/mypage');
   const isAuth = location.pathname.startsWith('/auth');
+  const isAdmin = location.pathname.startsWith('/admin');
   const baseClass = 'w-full max-w-7xl mx-auto px-4 pb-10 md:px-6 md:py-12 grow relative';
-  return isAuth ? (
-    <div id="wrapper" className="w-full min-h-screen flex flex-col bg-blue-50 bg-[url(/assets/auth-bg.png)] bg-cover bg-center">
+  if (isAuth) {
+    return (
+      <div id="wrapper" className="w-full min-h-screen flex flex-col bg-blue-50 bg-[url(/assets/auth-bg.png)] bg-cover bg-center">
         <main className={`${baseClass}`}>
           <Outlet />
         </main>
-    </div>
-  ) : (
+      </div>
+    );
+  }
+  if (isAdmin) {
+    return (
+      <div id="wrapper" className="w-full min-h-screen flex flex-col">
+        <AdminHeader />
+        <main className={`${baseClass}`}>
+          <Outlet />
+        </main>
+      </div>
+    )
+  }
+  return (
     <div id="wrapper" className="w-full min-h-screen flex flex-col">
       <Header />
       {isMyPage ? (

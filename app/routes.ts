@@ -48,4 +48,12 @@ export default [
   ]),
 
   // MARK: - 관리자 페이지
+  ...prefix('admin', [
+    ...prefix('account', [
+      route('/', 'features/admin/pages/account/account-approval.tsx'),
+      route('/edit', 'features/admin/pages/account/account-edit.tsx'),
+    ]),
+    route('/farm', 'features/admin/pages/admin-farm.tsx'),
+    route('/watertank', 'features/admin/pages/admin-water-tank.tsx'),
+  ]),
 ] satisfies RouteConfig;
