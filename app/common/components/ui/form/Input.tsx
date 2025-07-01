@@ -92,7 +92,7 @@ const Input: React.FC<InputProps> = ({
           id={id}
           required={required}
           autoComplete={autoComplete}
-          className={`w-full h-9 ${hasRightElement ? 'pr-6' : 'pr-2'}  pl-2 border rounded-lg outline-none transition-all
+          className={`w-full h-9 ${hasRightElement ? (unit?.length === 2 ? 'pr-8' : 'pr-6') : 'pr-2'} pl-2 border rounded-lg outline-none transition-all
             ${error ? 'border-rose-500' : 'border-slate-300'}
             ${disabled ? 'cursor-not-allowed text-slate-400 bg-slate-100'
             : readOnly ? 'bg-slate-100 font-bold'
