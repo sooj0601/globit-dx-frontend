@@ -6,8 +6,11 @@ import TableTd from "~/common/components/ui/table/TableTd";
 import GroupItemList from "~/common/components/modules/GroupItemList";
 import CustomTable from "~/common/components/ui/table/CustomTable";
 import {TableRow} from "~/common/components/ui/table/TableRow";
+import Input from "~/common/components/ui/form/Input";
+import {useState} from "react";
 
 export default function CageLogPage() {
+  const [selectedDate, setSelectedDate] = useState('');
   return (
     <>
       <PageTitle title="수조 이력 관리" desc="수조 이력 관리 페이지 입니다. 페이지 설명 텍스트가 들어갑니다." />
@@ -38,7 +41,14 @@ export default function CageLogPage() {
             </div>
             <div className="flex items-center grow">
               <CustomLabel label="입식 일자"/>
-              <input type="date" className="border-b border-slate-800 grow md:w-56 h-9 px-2" />
+              <Input
+                id="date-pick"
+                type="date"
+                value={selectedDate}
+                onChange={(e) => setSelectedDate(e.target.value)}
+                className="border-b border-slate-800 grow md:w-56"
+                inputStyle="border-none"
+              />
             </div>
           </div>
           <GroupItemList />

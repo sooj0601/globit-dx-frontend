@@ -11,8 +11,10 @@ import TankName from "~/common/components/modules/TankName";
 import GroupItemList from "~/common/components/modules/GroupItemList";
 import CustomTable from "~/common/components/ui/table/CustomTable";
 import {TableRow} from "~/common/components/ui/table/TableRow";
+import {useState} from "react";
 
 export default function DiaryPage() {
+  const [selectedDate, setSelectedDate] = useState('');
   return (
     <>
       <PageTitle title="통합 관리" desc="통합 관리 페이지 입니다. 페이지 설명 텍스트가 들어갑니다." />
@@ -21,7 +23,14 @@ export default function DiaryPage() {
           <div className="flex items-center justify-center gap-4 w-full md:w-auto mx-auto md:mx-0">
             <div className="flex items-center gap-4 grow max-w-3/4 md:max-w-none">
               <CustomLabel label="기준일자 선택" className="hidden md:flex"/>
-              <input id="date-pick" type="date" className="border-b border-slate-800 grow md:w-56 h-9 px-2" />
+              <Input
+                id="date-pick"
+                type="date"
+                value={selectedDate}
+                onChange={(e) => setSelectedDate(e.target.value)}
+                className="border-b border-slate-800 grow md:w-56"
+                inputStyle="border-none"
+              />
             </div>
           </div>
           <GroupItemList />

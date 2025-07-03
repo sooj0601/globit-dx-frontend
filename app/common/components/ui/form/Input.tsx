@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { Search, Eye, EyeOff } from 'lucide-react'; // 아이콘 라이브러리 (예시)
+import { Search, Eye, EyeOff } from 'lucide-react';
+import ReactDatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import CustomDateInput from '~/common/components/ui/form/CustomDateInput';
 
 type InputProps = {
   type?: string;
@@ -42,7 +45,14 @@ const Input: React.FC<InputProps> = ({
   const isPassword = type === 'password';
   const isSearch = type === 'search';
   const isFile = type === 'file';
+  const isDate = type === 'date';
   const hasRightElement = isPassword || !!unit || isSearch;
+  const toDateString = (date: Date): string => {
+    const year = date.getFullYear();
+    const month = `${date.getMonth() + 1}`.padStart(2, '0');
+    const day = `${date.getDate()}`.padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (number) {
@@ -55,7 +65,15 @@ const Input: React.FC<InputProps> = ({
     }
   };
 
-  // 파일 input은 따로 처리
+  const parseDate = (str: string): Date | null => {
+    if (!str) return null;
+    const parts = str.split('-');
+    if (parts.length !== 3) return null;
+    const [year, month, day] = parts.map(Number);
+    const date = new Date(year, month - 1, day);
+    return isNaN(date.getTime()) ? null : date;
+  };
+
   if (isFile) {
     return (
       <div className={`relative flex flex-col gap-1 ${className}`}>
@@ -76,11 +94,41 @@ const Input: React.FC<InputProps> = ({
     );
   }
 
+  if (isDate) {
+    return (
+      <div className={`flex flex-col ${className}`}>
+        <ReactDatePicker
+          selected={parseDate(value || '')}
+          onChange={(date) => {
+            const value = date ? toDateString(date) : '';
+            const fakeEvent = {
+              target: { name, value },
+            } as unknown as React.ChangeEvent<HTMLInputElement>;
+            onChange?.(fakeEvent);
+          }}
+          customInput={
+            <CustomDateInput
+              name={name}
+              id={id}
+              placeholder={placeholder}
+              inputStyle={inputStyle}
+            />
+          }
+          dateFormat="yyyy-MM-dd"
+          disabled={disabled}
+          className="w-full"
+        />
+        {error && <span className="text-sm text-rose-500">{error}</span>}
+      </div>
+    );
+  }
+
+
   return (
     <div className={`flex flex-col gap-1 ${className}`}>
       <div className={`relative flex flex-col gap-1`}>
         <input
-          type={(isPassword && showPassword) ? 'text' : type}
+          type={isPassword && showPassword ? 'text' : type}
           name={name}
           value={value}
           placeholder={placeholder}
@@ -101,7 +149,6 @@ const Input: React.FC<InputProps> = ({
             ${inputStyle}`}
         />
 
-        {/* 비밀번호 토글 */}
         {isPassword && (
           <button
             type="button"
@@ -112,16 +159,17 @@ const Input: React.FC<InputProps> = ({
           </button>
         )}
 
-        {/* 단위 표시 */}
         {!isPassword && unit && (
           <span className="absolute right-1.5 inset-y-0 my-auto flex items-center text-sm font-medium text-slate-400 pointer-events-none">
             {unit}
           </span>
         )}
 
-        {/* 검색 아이콘 */}
         {isSearch && (
-          <button type="button" className="cursor-pointer absolute right-3 inset-y-0 my-auto text-slate-600 hover:text-slate-400">
+          <button
+            type="button"
+            className="cursor-pointer absolute right-3 inset-y-0 my-auto text-slate-600 hover:text-slate-400"
+          >
             <Search size={18} />
           </button>
         )}

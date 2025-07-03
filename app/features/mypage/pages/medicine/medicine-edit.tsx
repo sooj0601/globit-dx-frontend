@@ -5,10 +5,6 @@ import InputSet from "~/common/components/ui/form/InputSet";
 import InputGroup from "~/common/components/ui/form/InputGroup";
 import RequireGuide from "~/common/components/modules/RequireGuide";
 import CustomBtn from "~/common/components/ui/form/CustomBtn";
-import {Plus, Trash2} from "lucide-react";
-import {TableRow} from "~/common/components/ui/table/TableRow";
-import CustomTable from "~/common/components/ui/table/CustomTable";
-import CustomLabel from "~/common/components/ui/form/CustomLabel";
 import Select from "~/common/components/ui/form/Select";
 import {useState} from "react";
 import BtnWrap from "~/common/components/ui/form/BtnWrap";
@@ -22,6 +18,7 @@ export default function MedicineEdit() {
   const [medicineList, setMedicineList] = useState('');
   const [selectedUnit, setSelectedUnit] = useState('g');
   const [selectedUnit2, setSelectedUnit2] = useState('g');
+  const [selectedDate, setSelectedDate] = useState('');
   return (
     <>
     <PageTitle title="약품 추가" desc="약품 추가 페이지 입니다. 페이지 설명 텍스트가 들어갑니다." />
@@ -52,7 +49,13 @@ export default function MedicineEdit() {
             />
           </InputSet>
           <InputSet label="구매 일자">
-            <Input type="date" className="grow"/>
+            <Input
+              id="date-pick"
+              className="grow"
+              type="date"
+              value={selectedDate}
+              onChange={(e) => setSelectedDate(e.target.value)}
+            />
           </InputSet>
         </InputGroup>
         <InputGroup lineTop>

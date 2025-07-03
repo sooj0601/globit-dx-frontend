@@ -25,6 +25,8 @@ export default function FeedEdit() {
   const [selectedFeed1, setSelectedFeed1] = useState('');
   const [selectedFeed2, setSelectedFeed2] = useState('');
   const [selectedMedicine, setSelectedMedicine] = useState('');
+  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedDate2, setSelectedDate2] = useState('');
   return (
     <>
     <PageTitle title="사료 추가" desc="사료 추가 페이지 입니다. 페이지 설명 텍스트가 들어갑니다." />
@@ -59,7 +61,13 @@ export default function FeedEdit() {
                 <Input type="text" className="grow" error="사료 이름을 입력하세요"/>
               </InputSet>
               <InputSet label="구매 일자">
-                <Input type="date" className="grow"/>
+                <Input
+                  id="date-pick"
+                  className="grow"
+                  type="date"
+                  value={selectedDate}
+                  onChange={(e) => setSelectedDate(e.target.value)}
+                />
               </InputSet>
             </InputGroup>
             <InputGroup lineTop>
@@ -92,7 +100,13 @@ export default function FeedEdit() {
                 <Input type="text" className="grow" />
               </InputSet>
               <InputSet label="혼합 일자">
-                <Input type="date" className="grow"/>
+                <Input
+                  id="date-pick2"
+                  className="grow"
+                  type="date"
+                  value={selectedDate2}
+                  onChange={(e) => setSelectedDate2(e.target.value)}
+                />
               </InputSet>
             </InputGroup>
             <InputGroup lineTop className="!gap-y-4">

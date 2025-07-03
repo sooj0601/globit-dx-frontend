@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import PageUtilLine from '~/common/components/ui/layout/PageUtilLine';
 import Container from '~/common/layouts/Container';
 import PageTitle from '~/common/components/ui/layout/PageTitle';
@@ -8,8 +9,10 @@ import WaterTankItemLine from '~/features/monitoring/components/water-tank-item'
 import InfoItem from '~/features/monitoring/components/info-item';
 import PopoverEditInfo from '~/features/monitoring/components/popover-edit-info';
 import DotBadge from "~/features/monitoring/components/dot-badge";
+import Input from '~/common/components/ui/form/Input';
 
 export default function FarmMonitoringPage() {
+  const [selectedDate, setSelectedDate] = useState('');
   return (
     <>
       <PageTitle title="양식 현황" desc="양식현황 페이지 입니다. 페이지 설명 텍스트가 들어갑니다." />
@@ -18,7 +21,14 @@ export default function FarmMonitoringPage() {
           <div className="flex items-center justify-center gap-4 w-full md:w-auto mx-auto md:mx-0">
             <div className="flex items-center gap-4 grow max-w-3/4 md:max-w-none">
               <CustomLabel label="기준일자 선택" className="hidden md:flex"/>
-              <input id="date-pick" type="date" className="border-b border-slate-800 grow md:w-56 h-9 px-2" />
+              <Input
+                id="date-pick"
+                type="date"
+                value={selectedDate}
+                onChange={(e) => setSelectedDate(e.target.value)}
+                className="border-b border-slate-800 grow md:w-56"
+                inputStyle="border-none"
+              />
             </div>
             <PopoverEditInfo />
           </div>

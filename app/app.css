@@ -19,3 +19,18 @@ body {
     color-scheme: dark;
   } */
 }
+
+/* React Datepicker */
+.react-datepicker {
+	font-size: var(--text-sm) !important;
+	border-radius: var(--radius-xl) !important;
+	overflow: hidden !important;
+	border-color: var(--color-slate-300) !important;
+}
+.react-datepicker__header {
+	background-color: var(--color-slate-100) !important;
+	border-bottom: none !important;
+}
+.react-datepicker__triangle {
+	display: none !important;
+}
