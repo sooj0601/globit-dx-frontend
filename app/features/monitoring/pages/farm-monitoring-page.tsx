@@ -10,9 +10,11 @@ import InfoItem from '~/features/monitoring/components/info-item';
 import PopoverEditInfo from '~/features/monitoring/components/popover-edit-info';
 import DotBadge from "~/features/monitoring/components/dot-badge";
 import Input from '~/common/components/ui/form/Input';
+import ModalDensitySet from "~/features/monitoring/components/modal-density-set";
 
 export default function FarmMonitoringPage() {
   const [selectedDate, setSelectedDate] = useState('');
+  const [openModal, setOpenModal] = useState<string | null>(null);
   return (
     <>
       <PageTitle title="양식 현황" desc="양식현황 페이지 입니다. 페이지 설명 텍스트가 들어갑니다." />
@@ -50,7 +52,7 @@ export default function FarmMonitoringPage() {
         <div className="flex flex-col gap-4">
           <Accordion title="A동">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6">
-              <WaterTankItemLine tankName="A-1" colorName="violet" state="green">
+              <WaterTankItemLine tankName="A-1" colorName="violet" state="green" onClick={() => setOpenModal("modal1")}>
                 <InfoItem label="미수" value="500" />
                 <InfoItem label="체중" value="3,000kg" />
               </WaterTankItemLine>
@@ -146,6 +148,11 @@ export default function FarmMonitoringPage() {
           </Accordion>
         </div>
       </Container>
+      {/* 밀도 설정 팝업 */}
+      <ModalDensitySet
+        isOpen={openModal === "modal1"}
+        onClose={() => setOpenModal(null)}
+      />
     </>
   );
 }

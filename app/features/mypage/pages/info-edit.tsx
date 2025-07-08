@@ -7,10 +7,12 @@ import CustomBtn from "~/common/components/ui/form/CustomBtn";
 import {useState} from "react";
 import BtnWrap from "~/common/components/ui/form/BtnWrap";
 import CustomBadge from "~/common/components/ui/form/CustomBadge";
+import ModalDeleteAccount from "~/features/mypage/components/modal-delete-account";
 
 
 
 export default function InfoEdit() {
+  const [openModal, setOpenModal] = useState<string | null>(null);
   return (
     <>
       <PageTitle title="내 정보 관리" desc="내 정보 관리 페이지 입니다. 페이지 설명 텍스트가 들어갑니다." />
@@ -43,11 +45,16 @@ export default function InfoEdit() {
             </div>
           </InputGroup>
           <BtnWrap>
-            <CustomBtn size="lg" variant="danger" className="grow w-full md:grow-0 md:w-auto !hidden md:!flex" >회원탈퇴</CustomBtn>
+            <CustomBtn size="lg" variant="danger" className="grow w-full md:grow-0 md:w-auto !hidden md:!flex" onClick={() => setOpenModal("modal1")}>회원탈퇴</CustomBtn>
             <CustomBtn size="lg" variant="primary" className="grow w-full md:grow-0 md:w-auto" >저장</CustomBtn>
           </BtnWrap>
         </div>
       </Container>
+      {/* 회원 탈퇴 팝업 */}
+      <ModalDeleteAccount
+        isOpen={openModal === "modal1"}
+        onClose={() => setOpenModal(null)}
+      />
     </>
   )
 }

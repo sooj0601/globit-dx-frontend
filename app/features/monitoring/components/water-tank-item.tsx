@@ -16,6 +16,7 @@ type WaterTankItemProps = {
     | 'brown'
     | 'orange'; // 필요한 색상 미리 정의
   children?: React.ReactNode;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 export default function WaterTankItemLine({
@@ -24,6 +25,7 @@ export default function WaterTankItemLine({
   state = 'green',
   colorName = 'slate',
   children,
+  onClick,
 }: WaterTankItemProps) {
   const tankColorMap = {
     slate: 'bg-slate-50 border-slate-500',
@@ -63,7 +65,8 @@ export default function WaterTankItemLine({
   };
   return (
     <div
-      className={`border-4 rounded-2xl p-2 md:px-4 md:py-3 ${tankColorMap[colorName]} ${className}`}
+      className={`border-4 rounded-2xl p-2 md:px-4 md:py-3 ${tankColorMap[colorName]} ${className} ${onClick ? 'cursor-pointer' : ''}`}
+      onClick={onClick}
     >
       <div
         className={`flex items-center pb-1 mb-1 md:pb-3 md:mb-3 justify-between border-b ${borderColorMap[colorName]}`}

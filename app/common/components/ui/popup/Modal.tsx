@@ -3,8 +3,8 @@ import { X } from 'lucide-react'
 
 interface ModalProps {
   onClose: () => void;
-  title: string;
-  size?: "sm" | "md" | "lg" | "xl";
+  title?: string;
+  size?: "alert" | "sm" | "md" | "lg" | "xl";
   children: React.ReactNode;
   zIndex?: number;
 }
@@ -19,7 +19,7 @@ function Modal({ onClose, title, size = "md", children, zIndex = 60 }: ModalProp
     };
   }, []);
   let sizeClass = "md:w-[480px]";
-  if (size === "sm") sizeClass = "md:w-[400px]";
+  if (size === "sm" || size === "alert") sizeClass = "md:w-[400px]";
   else if (size === "lg") sizeClass = "md:w-[480px]";
   else if (size === "xl") sizeClass = "md:w-[660px]";
 
@@ -41,6 +41,7 @@ function Modal({ onClose, title, size = "md", children, zIndex = 60 }: ModalProp
         style={{ zIndex: zIndex }}
         onClick={(e) => e.stopPropagation()}
       >
+        {size !== "alert" && (
         <div className="flex justify-between items-center">
           <h2 className="text-xl md:text-2xl font-bold">{title}</h2>
           <button type="button"
@@ -50,7 +51,8 @@ function Modal({ onClose, title, size = "md", children, zIndex = 60 }: ModalProp
             <span className="font-bold">닫기</span><X size={24} />
           </button>
         </div>
-        <div className=" overflow-auto shrink-0 flex flex-col gap-8">
+        )}
+        <div className="flex flex-col gap-6 h-full grow min-h-0">
           {children}
         </div>
       </div>

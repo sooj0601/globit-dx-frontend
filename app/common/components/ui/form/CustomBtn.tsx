@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 type CustomBtnProps = {
   size?: 'xs' | 'sm' | 'lg' | 'icon';
-  variant?: 'default' | 'primary' | 'secondary' | 'danger' | 'ghost' | 'outline';
+  variant?: 'default' | 'primary' | 'secondary' | 'gray' | 'danger' | 'ghost' | 'outline';
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   children?: ReactNode;
@@ -52,6 +52,9 @@ export default function CustomBtn({
       break;
     case 'secondary':
       variantClass = 'bg-gray-100 text-gray-800 hover:bg-gray-200';
+      break;
+    case 'gray' :
+      variantClass = 'bg-slate-200 text-slate-400 hover:bg-gray-300';
       break;
     case 'danger':
       variantClass = 'bg-rose-500 text-white hover:bg-rose-300';
