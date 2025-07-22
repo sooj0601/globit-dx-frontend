@@ -70,7 +70,7 @@ export default function CustomBtn({
   const content = (
     <>
       {leftIcon && <span className="flex-shrink-0">{leftIcon}</span>}
-      {children && <span>{children}</span>}
+      {children && <span className="flex-shrink-0 break-keep">{children}</span>}
       {rightIcon && <span className="flex-shrink-0">{rightIcon}</span>}
     </>
   );
