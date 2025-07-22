@@ -1,5 +1,3 @@
-import {Link} from "react-router";
-
 type TankSelectItemProps = {
   variant?: 'slate' | 'violet' | 'lime' | 'yellow' | 'cyan' | 'indigo' | 'teal' | 'pink' | 'brown' | 'orange'// 필요한 색상
   tankName: string;

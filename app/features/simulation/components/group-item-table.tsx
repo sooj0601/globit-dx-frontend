@@ -1,5 +1,4 @@
 import React, {createContext, type ReactNode, useContext} from 'react';
-import clsx from 'clsx';
 
 type GroupItemTableColor =
   | 'slate'
@@ -43,30 +42,7 @@ export function GroupItemTable({
     brown: 'bg-yellow-800',
     orange: 'bg-orange-500',
   };
-  const borderMap: Record<string, string> = {
-    slate: 'border-slate-300',
-    violet: 'border-violet-300',
-    lime: 'border-lime-300',
-    yellow: 'border-yellow-300',
-    cyan: 'border-cyan-300',
-    indigo: 'border-indigo-300',
-    teal: 'border-teal-300',
-    pink: 'border-pink-300',
-    brown: 'border-[#EADFDB]',
-    orange: 'border-orange-300',
-  };
-  const bgMap: Record<string, string> = {
-    slate: 'bg-slate-100',
-    violet: 'bg-violet-100',
-    lime: 'bg-lime-100',
-    yellow: 'bg-yellow-100',
-    cyan: 'bg-cyan-100',
-    indigo: 'bg-indigo-100',
-    teal: 'bg-teal-100',
-    pink: 'bg-pink-100',
-    brown: 'bg-[#F8EDE9]',
-    orange: 'bg-orange-100',
-  };
+
   return (
     <GroupItemTableColorContext.Provider value={colorName}>
       <div className={`flex flex-col w-full rounded-2xl overflow-hidden gap-4 md:gap-0 ${className}`}>
