@@ -23,23 +23,23 @@ export function DataTable({
     <div className={`relative ${className}`}>
       {/* 세로 스크롤 화살표 */}
       <div className="absolute top-1/2 -translate-y-1/2 -left-12 z-20 hidden lg:flex flex-col items-center gap-2">
-        <button onClick={() => scroll('up')} className="w-10 h-10 flex items-center justify-center">
-          <ChevronUp size={32} className="text-slate-500" />
+        <button onClick={() => scroll('up')} className="w-10 h-10 flex items-center justify-center cursor-pointer hover:text-slate-800 text-slate-500">
+          <ChevronUp size={32}/>
         </button>
         <span className="w-4 h-[2px] bg-slate-300"></span>
-        <button onClick={() => scroll('down')} className="w-10 h-10 flex items-center justify-center">
-          <ChevronDown size={32} className="text-slate-500" />
+        <button onClick={() => scroll('down')} className="w-10 h-10 flex items-center justify-center cursor-pointer hover:text-slate-800 text-slate-500">
+          <ChevronDown size={32}/>
         </button>
       </div>
 
       {/* 가로 스크롤 화살표 */}
       <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-2 z-24">
-        <button onClick={() => scroll('left')} className="w-10 h-10 flex items-center justify-center">
-          <ChevronLeft size={32} className="text-slate-500" />
+        <button onClick={() => scroll('left')} className="w-10 h-10 flex items-center justify-center cursor-pointer hover:text-slate-800 text-slate-500">
+          <ChevronLeft size={32}/>
         </button>
         <span className="w-[2px] h-4 bg-slate-300"></span>
-        <button onClick={() => scroll('right')} className="w-10 h-10 flex items-center justify-center">
-          <ChevronRight size={32} className="text-slate-500" />
+        <button onClick={() => scroll('right')} className="w-10 h-10 flex items-center justify-center cursor-pointer hover:text-slate-800 text-slate-500">
+          <ChevronRight size={32}/>
         </button>
       </div>
       <div ref={tableContainerRef} className="relative w-full overflow-x-auto overflow-y-auto max-h-[500px] rounded-2xl">
