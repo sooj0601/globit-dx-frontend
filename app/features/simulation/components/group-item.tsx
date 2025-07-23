@@ -1,4 +1,5 @@
 import { ClipboardPen, Check } from 'lucide-react';
+import Input from "~/common/components/ui/form/Input";
 
 type GroupItemProps = {
   className?: string;
@@ -73,8 +74,8 @@ export default function GroupItemLine({
         <div
           className={`flex items-center pb-3 mb-3 justify-between border-b border-slate-300`}
         >
-          <p className={`font-bold text-md md:text-lg text-slate-500`}>
-            {groupName}
+          <p className={`font-bold text-md md:text-lg text-slate-500 grow`}>
+            <Input type="text" placeholder="입식 그룹 이름을 입력하세요" value="" />
           </p>
         </div>
         <div className="flex flex-wrap gap-4">{children}</div>
@@ -87,10 +88,12 @@ export default function GroupItemLine({
         className={`min-h-auto md:min-h-[426px] border-4 rounded-2xl p-4 ${stateClass} ${groupColorMap[colorName]} ${className} `}
       >
         <div
-          className={`flex items-center pb-3 mb-3 justify-between border-b ${borderColorMap[colorName]}`}
+          className={`flex items-center pb-3 mb-3 justify-between gap-6 lg:gap-20 border-b ${borderColorMap[colorName]}`}
         >
-          <p className={`font-bold text-md md:text-lg ${textColorMap[colorName]}`}>
-            {groupName}
+          <p className={`font-bold text-md md:text-lg grow ${textColorMap[colorName]}`}>
+            {mode === 'edit' ? (<Input type="text" placeholder="입식 그룹 이름을 입력하세요" value="" />) : (
+              `${groupName}`
+            )}
           </p>
           <div>
             {mode === 'edit' ? (

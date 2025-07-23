@@ -289,12 +289,12 @@ export default function PlanPage() {
                 </SwiperSlide>
               </Swiper>
               <div className="custom-swiper-button-prev absolute mt-6 md:mt-2 -left-6 md:-left-14 top-1/2 -translate-y-1/2 z-10 cursor-pointer">
-                <button className=" w-12 h-12 flex items-center justify-center">
+                <button className=" w-12 h-12 flex items-center justify-center cursor-pointer">
                   <ChevronLeft size={48} className="text-slate-300" />
                 </button>
               </div>
               <div className="custom-swiper-button-next absolute mt-6 md:mt-2 -right-6 md:-right-14 top-1/2 -translate-y-1/2 z-10 cursor-pointer">
-                <button className=" w-12 h-12 flex items-center justify-center">
+                <button className=" w-12 h-12 flex items-center justify-center cursor-pointer">
                   <ChevronRight size={48} className="text-slate-300" />
                 </button>
               </div>

@@ -32,7 +32,7 @@ export default [
     route('', 'features/simulation/pages/schedule.tsx'),
     route('manager', 'features/simulation/pages/manager.tsx'),
     route('plan', 'features/simulation/pages/plan.tsx'),
-    //route('data', 'features/simulation/pages/data.tsx'),
+    route('data', 'features/simulation/pages/data.tsx'),
   ]),
 
   // MARK: - 마이페이지

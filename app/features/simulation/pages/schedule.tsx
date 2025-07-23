@@ -102,7 +102,7 @@ export default function SchedulePage() {
               <ChartPlaceholder className="max-w-[600px]" ratio={9 / 16} />
             </ModuleWrap>
           </div>
-          <div className="grid lg:grid-cols-3 gap-10">
+          <div className="grid lg:grid-cols-2 gap-10">
             <ModuleWrap title="입식 계획">
               <ModuleTable className="w-full">
                 <ModuleTableHead>
@@ -152,6 +152,7 @@ export default function SchedulePage() {
                 <ModuleTableHead>
                   <th>날짜</th>
                   <th>미수(마리)</th>
+                  <th>예측 수익</th>
                 </ModuleTableHead>
                 <tbody>
                 <ModuleTableTr>
@@ -161,11 +162,6 @@ export default function SchedulePage() {
                   <ModuleTableTd noBorder>
                     <span>1000</span>
                   </ModuleTableTd>
-                </ModuleTableTr>
-                <ModuleTableTr>
-                  <ModuleTableTd noBorder>
-                    <span>2025-03-02</span>
-                  </ModuleTableTd>
                   <ModuleTableTd noBorder>
                     <span>1000</span>
                   </ModuleTableTd>
@@ -177,21 +173,6 @@ export default function SchedulePage() {
                   <ModuleTableTd noBorder>
                     <span>1000</span>
                   </ModuleTableTd>
-                </ModuleTableTr>
-                </tbody>
-              </ModuleTable>
-            </ModuleWrap>
-            <ModuleWrap title="판매 수익 예측">
-              <ModuleTable className="w-full">
-                <ModuleTableHead>
-                  <th>날짜</th>
-                  <th>미수(마리)</th>
-                </ModuleTableHead>
-                <tbody>
-                <ModuleTableTr>
-                  <ModuleTableTd noBorder>
-                    <span>2025-03-02</span>
-                  </ModuleTableTd>
                   <ModuleTableTd noBorder>
                     <span>1000</span>
                   </ModuleTableTd>
@@ -202,11 +183,6 @@ export default function SchedulePage() {
                   </ModuleTableTd>
                   <ModuleTableTd noBorder>
                     <span>1000</span>
-                  </ModuleTableTd>
-                </ModuleTableTr>
-                <ModuleTableTr>
-                  <ModuleTableTd noBorder>
-                    <span>2025-03-02</span>
                   </ModuleTableTd>
                   <ModuleTableTd noBorder>
                     <span>1000</span>
