@@ -3,18 +3,32 @@ import ModuleWrap from '~/features/simulation/components/module-wrap';
 import {ModuleTable, ModuleTableHead, ModuleTableTd, ModuleTableTr} from "~/features/simulation/components/module-table";
 import {PredictionTable, PredictionTableTh} from "~/features/simulation/components/prediction-table";
 import ChartPlaceholder from '~/features/simulation/components/chart-placeholder';
+import PageTitle from "~/common/components/ui/layout/PageTitle";
+import ScrollSlider from "~/common/components/modules/ScrollSlider";
 
 
 export default function SchedulePage() {
   return (
     <>
+      <PageTitle title="입출하계획" desc="입출하계획의 현황을 파악할 수 있습니다." />
       <Container>
-        <div className="flex flex-col gap-10 lg:gap-12 pt-4 lg:pt-0">
+        <div className="flex flex-col gap-10 lg:gap-12">
           <ModuleWrap title="양식장 총 미수 예측">
-            <div className="w-full overflow-x-auto">
+            <div className="w-full">
+              <ScrollSlider>
               <PredictionTable>
                 <thead>
                 <tr>
+                  <PredictionTableTh>2025년 8월</PredictionTableTh>
+                  <PredictionTableTh>2025년 9월</PredictionTableTh>
+                  <PredictionTableTh>2025년 10월</PredictionTableTh>
+                  <PredictionTableTh>2025년 11월</PredictionTableTh>
+                  <PredictionTableTh>2025년 12월</PredictionTableTh>
+                  <PredictionTableTh>2026년 1월</PredictionTableTh>
+                  <PredictionTableTh>2026년 2월</PredictionTableTh>
+                  <PredictionTableTh>2026년 3월</PredictionTableTh>
+                  <PredictionTableTh>2026년 4월</PredictionTableTh>
+                  <PredictionTableTh>2026년 5월</PredictionTableTh>
                   <PredictionTableTh>2025년 8월</PredictionTableTh>
                   <PredictionTableTh>2025년 9월</PredictionTableTh>
                   <PredictionTableTh>2025년 10월</PredictionTableTh>
@@ -89,9 +103,70 @@ export default function SchedulePage() {
                       <span className="text-slate-500">0.00kg</span>
                     </div>
                   </td>
+                  <td>
+                    <div className="flex flex-col items-center py-4 px-2 border-r border-r-slate-300">
+                      <strong className="font-bold break-keep">00,000마리</strong>
+                      <span className="text-slate-500">0.00kg</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex flex-col items-center py-4 px-2 border-r border-r-slate-300">
+                      <strong className="font-bold break-keep">00,000마리</strong>
+                      <span className="text-slate-500">0.00kg</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex flex-col items-center py-4 px-2 border-r border-r-slate-300">
+                      <strong className="font-bold break-keep">00,000마리</strong>
+                      <span className="text-slate-500">0.00kg</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex flex-col items-center py-4 px-2 border-r border-r-slate-300">
+                      <strong className="font-bold break-keep">00,000마리</strong>
+                      <span className="text-slate-500">0.00kg</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex flex-col items-center py-4 px-2 border-r border-r-slate-300">
+                      <strong className="font-bold break-keep">00,000마리</strong>
+                      <span className="text-slate-500">0.00kg</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex flex-col items-center py-4 px-2 border-r border-r-slate-300">
+                      <strong className="font-bold break-keep">00,000마리</strong>
+                      <span className="text-slate-500">0.00kg</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex flex-col items-center py-4 px-2 border-r border-r-slate-300">
+                      <strong className="font-bold break-keep">00,000마리</strong>
+                      <span className="text-slate-500">0.00kg</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex flex-col items-center py-4 px-2 border-r border-r-slate-300">
+                      <strong className="font-bold break-keep">00,000마리</strong>
+                      <span className="text-slate-500">0.00kg</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex flex-col items-center py-4 px-2 border-r border-r-slate-300">
+                      <strong className="font-bold break-keep">00,000마리</strong>
+                      <span className="text-slate-500">0.00kg</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex flex-col items-center py-4 px-2">
+                      <strong className="font-bold break-keep">00,000마리</strong>
+                      <span className="text-slate-500">0.00kg</span>
+                    </div>
+                  </td>
                 </tr>
                 </tbody>
               </PredictionTable>
+              </ScrollSlider>
             </div>
           </ModuleWrap>
           <div className="grid lg:grid-cols-2 gap-10">
