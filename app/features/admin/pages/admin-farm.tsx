@@ -14,7 +14,7 @@ import CustomLabel from "~/common/components/ui/form/CustomLabel";
 import BtnWrap from "~/common/components/ui/form/BtnWrap";
 
 export default function AdminFarm() {
-  const [selectedFarm, setSelectedFarm] = useState<string[]>(['farm-001']);
+  const [selectedFarm, setSelectedFarm] = useState<string[]>(['situation-001']);
   const isMobile = useIsMobile();
   const toggleFarmSelection = (value: string) => {
     setSelectedFarm((prev) =>
@@ -75,12 +75,12 @@ export default function AdminFarm() {
         >
           <TableRow
             title={<p>제주 양식 수산</p>}
-            onClick={() => isMobile && toggleFarmSelection('farm-001')}
+            onClick={() => isMobile && toggleFarmSelection('situation-001')}
             header={<SelectableInput
               name="selected-farm"
               value="farm-001"
               variant="checkbox"
-              checked={selectedFarm.includes('farm-001')}
+              checked={selectedFarm.includes('situation-001')}
               onChange={(e) => {
                 const { checked, value } = e.target;
                 setSelectedFarm((prev) =>
@@ -89,7 +89,7 @@ export default function AdminFarm() {
               }}
             />}
             className={`border transition-all ${
-              selectedFarm.includes('farm-001')
+              selectedFarm.includes('situation-001')
                 ? 'border-blue-500 !bg-blue-50 lg:border-transparent lg:border-b-slate-300'
                 : 'border-transparent'
             }`}>
@@ -125,12 +125,12 @@ export default function AdminFarm() {
           </TableRow>
           <TableRow
             title={<p>제주 양식 수산</p>}
-            onClick={() => isMobile && toggleFarmSelection('farm-002')}
+            onClick={() => isMobile && toggleFarmSelection('situation-002')}
             header={<SelectableInput
               name="selected-farm"
               value="farm-002"
               variant="checkbox"
-              checked={selectedFarm.includes('farm-002')}
+              checked={selectedFarm.includes('situation-002')}
               onChange={(e) => {
                 const { checked, value } = e.target;
                 setSelectedFarm((prev) =>
@@ -139,7 +139,7 @@ export default function AdminFarm() {
               }}
             />}
             className={`border transition-all ${
-              selectedFarm.includes('farm-002')
+              selectedFarm.includes('situation-002')
                 ? 'border-blue-500 !bg-blue-50 lg:border-transparent lg:border-b-slate-300'
                 : 'border-transparent'
             }`}>
@@ -175,12 +175,12 @@ export default function AdminFarm() {
           </TableRow>
           <TableRow
             title={<p>제주 양식 수산</p>}
-            onClick={() => isMobile && toggleFarmSelection('farm-003')}
+            onClick={() => isMobile && toggleFarmSelection('situation-003')}
             header={<SelectableInput
               name="selected-farm"
               value="farm-003"
               variant="checkbox"
-              checked={selectedFarm.includes('farm-003')}
+              checked={selectedFarm.includes('situation-003')}
               onChange={(e) => {
                 const { checked, value } = e.target;
                 setSelectedFarm((prev) =>
@@ -189,7 +189,7 @@ export default function AdminFarm() {
               }}
             />}
             className={`border transition-all ${
-              selectedFarm.includes('farm-003')
+              selectedFarm.includes('situation-003')
                 ? 'border-blue-500 !bg-blue-50 lg:border-transparent lg:border-b-slate-300'
                 : 'border-transparent'
             }`}>

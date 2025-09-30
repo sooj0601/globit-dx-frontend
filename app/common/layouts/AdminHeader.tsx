@@ -10,7 +10,7 @@ export default function AdminHeader() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return (
     <header className="bg-white sticky top-0 h-16 lg:h-24 z-50 flex justify-center">
-      <div className="w-full max-w-7xl h-full mx-auto px-4 md:px-6 flex justify-between items-center">
+      <div className="w-full max-w-[1440px] h-full mx-auto px-4 md:px-6 flex justify-between items-center">
         <Link to="/" className="w-[123px] lg:w-[200px] flex items-center shrink-0 grow-0 gap-2">
           <img
             src={'/assets/logo.svg'}

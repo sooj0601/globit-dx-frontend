@@ -12,7 +12,7 @@ const CustomDateInput = forwardRef<HTMLInputElement, any>(({ value, onClick, pla
       placeholder={placeholder}
       name={name}
       id={id}
-      className={`w-full h-9 pl-2 pr-10 border border-slate-300 rounded-lg outline-none bg-white hover:border-slate-400 focus:border-slate-400 ${inputStyle}`}
+      className={`w-full h-9 pl-2 pr-8 border border-slate-300 rounded-lg outline-none bg-white hover:border-slate-400 focus:border-slate-400 ${inputStyle}`}
     />
     <button
       type="button"

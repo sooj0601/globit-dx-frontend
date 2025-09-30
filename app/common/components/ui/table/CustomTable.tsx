@@ -1,12 +1,6 @@
 import React, {
-  type ReactElement,
   type ReactNode,
-  Children,
-  isValidElement,
-  cloneElement,
 } from 'react';
-import { TableRow } from '~/common/components/ui/table/TableRow';
-import type { TableItemProps } from '~/common/components/ui/table/TableRow';
 
 type CustomTableProps = {
   children?: ReactNode;

@@ -6,10 +6,11 @@ interface ModalProps {
   title?: string;
   size?: "alert" | "sm" | "md" | "lg" | "xl";
   children: React.ReactNode;
-  zIndex?: number;
+  zIndex?: number
+  subTitle?: string;
 }
 
-function Modal({ onClose, title, size = "md", children, zIndex = 60 }: ModalProps) {
+function Modal({ onClose, title, subTitle, size = "md", children, zIndex = 60 }: ModalProps) {
   useEffect(() => {
     // 모달 열리면 body 스크롤 막기
     document.body.style.overflow = "hidden";
@@ -21,7 +22,7 @@ function Modal({ onClose, title, size = "md", children, zIndex = 60 }: ModalProp
   let sizeClass = "md:w-[480px]";
   if (size === "sm" || size === "alert") sizeClass = "md:w-[400px]";
   else if (size === "lg") sizeClass = "md:w-[480px]";
-  else if (size === "xl") sizeClass = "md:w-[660px]";
+  else if (size === "xl") sizeClass = "md:w-[780px]";
 
   return (
     <>
@@ -32,10 +33,10 @@ function Modal({ onClose, title, size = "md", children, zIndex = 60 }: ModalProp
       />
       <div
         className={`
-          fixed inset-x-4 top-1/2 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 
-          bg-white rounded-2xl md:rounded-3xl shadow-lg p-6
+          fixed inset-x-2 top-1/2 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 
+          bg-white rounded-2xl md:rounded-3xl shadow-lg p-4 md:p-6
           max-h-[80vh] overflow-auto
-          w-auto flex flex-col gap-6
+          w-auto flex flex-col gap-4
           ${sizeClass}
         `}
         style={{ zIndex: zIndex }}
@@ -43,7 +44,10 @@ function Modal({ onClose, title, size = "md", children, zIndex = 60 }: ModalProp
       >
         {size !== "alert" && (
         <div className="flex justify-between items-center">
-          <h2 className="text-xl md:text-2xl font-bold">{title}</h2>
+          <div className="flex items-center gap-2">
+            <h2 className="text-xl md:text-2xl font-bold">{title}</h2>
+            <span className="text-lg font-bold text-slate-500">{subTitle}</span>
+          </div>
           <button type="button"
             className="flex items-center justify-end gap-1 rounded-xl h-10 px-1 text-slate-800 hover:bg-slate-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
             onClick={onClose}

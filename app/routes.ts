@@ -27,12 +27,19 @@ export default [
     route('cage/:cageId', 'features/diary/pages/cage-log-page.tsx'),
   ]),
 
-  // MARK: - 입/출하 계획
-  ...prefix('simulation', [
-    route('', 'features/simulation/pages/schedule.tsx'),
-    route('manager', 'features/simulation/pages/manager.tsx'),
-    route('plan', 'features/simulation/pages/plan.tsx'),
-    route('data', 'features/simulation/pages/data.tsx'),
+  // MARK: - 대시보드
+  route('dashboard', 'features/dashboard/pages/dashboard.tsx'),
+
+  // MARK: - 현황통계
+  ...prefix('situation', [
+    route('', 'features/situation/pages/map.tsx'),
+    route('list', 'features/situation/pages/list.tsx'),
+  ]),
+
+  // MARK: - 통합현황
+  ...prefix('integration', [
+    route('', 'features/integration/pages/cost.tsx'),
+    route('farm', 'features/integration/pages/farm.tsx'),
   ]),
 
   // MARK: - 마이페이지

@@ -19,14 +19,9 @@ export default function Nav({ className = '' }: NavProps) {
         ]}
       />
 
-      <NavItem
-        label="입・출하계획"
-        subMenu={[
-          { label: '입・출하계획', to: '/simulation' },
-          { label: '입・출하관리', to: '/simulation/manager' },
-          { label: '입・출하계획 수익 분석표', to: '/simulation/data' },
-        ]}
-      />
+      <NavItem label="대시보드" to="/dashboard" />
+      <NavItem label="현황통계" to="/situation" />
+      <NavItem label="통합현황" to="/integration" />
 
       <NavItem
         label="마이페이지"

@@ -14,7 +14,7 @@ import CustomBadge from "~/common/components/ui/form/CustomBadge";
 import CustomLabel from "~/common/components/ui/form/CustomLabel";
 
 export default function AccountApproval() {
-  const [selectedUser, setSelectedUser] = useState<string[]>(['farm-001']);
+  const [selectedUser, setSelectedUser] = useState<string[]>(['situation-001']);
   const isMobile = useIsMobile();
   const toggleUserSelection = (value: string) => {
     setSelectedUser((prev) =>

@@ -14,7 +14,7 @@ import CustomBadge from "~/common/components/ui/form/CustomBadge";
 import BtnWrap from "~/common/components/ui/form/BtnWrap";
 
 export default function FarmManagement() {
-  const [selectedFarms, setSelectedFarms] = useState<string[]>(['farm-001']);
+  const [selectedFarms, setSelectedFarms] = useState<string[]>(['situation-001']);
   const isMobile = useIsMobile();
   const toggleFarmSelection = (value: string) => {
     setSelectedFarms((prev) =>
@@ -58,12 +58,12 @@ export default function FarmManagement() {
         >
           <TableRow
             title="첨단양식장"
-            onClick={() => isMobile && toggleFarmSelection('farm-001')}
+            onClick={() => isMobile && toggleFarmSelection('situation-001')}
             header={<SelectableInput
               name="selected-farms"
               value="farm-001"
               variant="checkbox"
-              checked={selectedFarms.includes('farm-001')}
+              checked={selectedFarms.includes('situation-001')}
               onChange={(e) => {
                 const { checked, value } = e.target;
                 setSelectedFarms((prev) =>
@@ -72,7 +72,7 @@ export default function FarmManagement() {
               }}
             />}
             className={`border transition-all ${
-              selectedFarms.includes('farm-001')
+              selectedFarms.includes('situation-001')
                 ? 'border-blue-500 !bg-blue-50 lg:border-transparent lg:border-b-slate-300'
                 : 'border-transparent'
             }`}>
@@ -81,7 +81,7 @@ export default function FarmManagement() {
                   name="selected-farms"
                   value="farm-001"
                   variant="checkbox"
-                  checked={selectedFarms.includes('farm-001')}
+                  checked={selectedFarms.includes('situation-001')}
                   onChange={(e) => {
                     const { checked, value } = e.target;
                     setSelectedFarms((prev) =>
@@ -108,12 +108,12 @@ export default function FarmManagement() {
           </TableRow>
           <TableRow
             title="첨단양식장"
-            onClick={() => isMobile && toggleFarmSelection('farm-002')}
+            onClick={() => isMobile && toggleFarmSelection('situation-002')}
             header={<SelectableInput
               name="selected-farms"
               value="farm-002"
               variant="checkbox"
-              checked={selectedFarms.includes('farm-002')}
+              checked={selectedFarms.includes('situation-002')}
               onChange={(e) => {
                 const { checked, value } = e.target;
                 setSelectedFarms((prev) =>
@@ -122,7 +122,7 @@ export default function FarmManagement() {
               }}
             />}
             className={`border transition-all ${
-              selectedFarms.includes('farm-002')
+              selectedFarms.includes('situation-002')
                 ? 'border-blue-500 !bg-blue-50 lg:border-transparent lg:border-b-slate-300'
                 : 'border-transparent'
             }`}>
@@ -131,7 +131,7 @@ export default function FarmManagement() {
                   name="selected-farms"
                   value="farm-002"
                   variant="checkbox"
-                  checked={selectedFarms.includes('farm-002')}
+                  checked={selectedFarms.includes('situation-002')}
                   onChange={(e) => {
                     const { checked, value } = e.target;
                     setSelectedFarms((prev) =>
