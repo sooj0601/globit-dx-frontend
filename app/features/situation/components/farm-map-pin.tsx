@@ -31,9 +31,8 @@ export const FarmMapPin: React.FC<FarmMapPinProps> = ({
         onMouseLeave={() => setHovered(false)}
       >
         <div className="relative flex flex-col gap-1.5 items-center">
-          {/* 툴팁 (PC에서만 보이게 md:block) */}
           <div
-            className={`absolute left-10 -top-10 flex-col gap-2 w-80 p-4 rounded-3xl bg-white whitespace-nowrap 
+            className={`absolute left-10 -top-10 flex-col gap-2 w-80 p-4 rounded-3xl bg-white shadow-slate-500 shadow-xl/40 whitespace-nowrap 
                         opacity-0 group-hover:opacity-100 transition hidden md:flex`}
           >
             <div className="flex justify-between items-center">
