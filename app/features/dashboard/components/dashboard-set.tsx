@@ -6,23 +6,27 @@ import DeathIcon from "~/assets/icons/death.svg?react";
 const typeConfig = {
   stock: {
     icon: StockIcon,
-    bg: 'bg-blue-500 shadow-blue-500 shadow-xl/40',
+    bg: 'bg-blue-500 shadow-blue-500 shadow-xl/50',
     text: 'text-blue-500',
+    lightBg: 'bg-blue-100',
   },
   shipment: {
     icon: StockIcon,
-    bg: 'bg-indigo-500 shadow-indigo-500 shadow-xl/40',
+    bg: 'bg-indigo-500 shadow-indigo-500 shadow-xl/50',
     text: 'text-indigo-500',
+    lightBg: 'bg-indigo-100',
   },
   possession: {
     icon: PossessionIcon,
-    bg: 'bg-teal-400 shadow-teal-400 shadow-xl/40',
+    bg: 'bg-teal-400 shadow-teal-400 shadow-xl/50',
     text: 'text-teal-400',
+    lightBg: 'bg-teal-100',
   },
   death: {
     icon: DeathIcon,
-    bg: 'bg-violet-500 shadow-violet-500 shadow-xl/40',
+    bg: 'bg-violet-500 shadow-violet-500 shadow-xl/50',
     text: 'text-violet-500',
+    lightBg: 'bg-violet-100',
   },
 } as const;
 
@@ -63,9 +67,9 @@ export function DashboardCurrent({ title, value, type = 'stock', unit, compare, 
   compare?: string;
   children?: React.ReactNode;
 }) {
-  const { icon: IconComponent, bg, text } = typeConfig[type];
+  const { icon: IconComponent, bg, text, lightBg } = typeConfig[type];
   return (
-    <div className="flex flex-col bg-slate-100 rounded-3xl">
+    <div className={`flex flex-col ${lightBg} rounded-3xl`}>
       <div className={`md:grow flex md:flex-col md:gap-9 items-center md:items-start p-4 md:p-6 rounded-2xl md:rounded-3xl text-white ${bg}`}>
         <span className="hidden md:flex items-center justify-center size-16 rounded-full bg-white/70">
           <IconComponent className={`w-12 h-12 ${text}`} />
