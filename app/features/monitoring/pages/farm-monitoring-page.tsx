@@ -51,7 +51,7 @@ export default function FarmMonitoringPage() {
         </PageUtilLine>
         <div className="flex flex-col gap-4">
           <Accordion title="A동">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6">
               <WaterTankItemLine tankName="A-1" colorName="violet" state="green" onClick={() => setOpenModal("modal1")}>
                 <InfoItem label="미수" value="500" />
                 <InfoItem label="체중" value="3,000kg" />
@@ -91,7 +91,7 @@ export default function FarmMonitoringPage() {
             </div>
           </Accordion>
           <Accordion title="B동">
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6">
               <WaterTankItemLine tankName="B-1" colorName="teal" state="green">
                 <InfoItem label="미수" value="500" />
                 <InfoItem label="체중" value="3,000kg" />
@@ -119,7 +119,7 @@ export default function FarmMonitoringPage() {
             </div>
           </Accordion>
           <Accordion title="C동">
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6">
               <WaterTankItemLine tankName="B-1" colorName="teal" state="green">
                 <InfoItem label="미수" value="500" />
                 <InfoItem label="체중" value="3,000kg" />

@@ -76,7 +76,7 @@ export default function WaterTankItemLine({
         </p>
         <DotBadge variant={`${state}`} />
       </div>
-      <div className="flex flex-wrap gap-4">{children}</div>
+      <div className="flex flex-wrap gap-x-4 gap-y-1">{children}</div>
     </div>
   );
 }
