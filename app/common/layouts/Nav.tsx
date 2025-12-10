@@ -6,7 +6,7 @@ type NavProps = {
 
 export default function Nav({ className = '' }: NavProps) {
   return (
-    <nav className={`flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-0 ${className}`} role="navigation" aria-label="메인 메뉴">
+    <nav className={`flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4 ${className}`} role="navigation" aria-label="메인 메뉴">
       <NavItem label="양식 현황" to="/" />
 
       <NavItem
@@ -22,6 +22,8 @@ export default function Nav({ className = '' }: NavProps) {
       <NavItem label="대시보드" to="/dashboard" />
       <NavItem label="현황통계" to="/situation" />
       <NavItem label="통합현황" to="/integration" />
+      <NavItem label="비용관리" to="/cost" />
+      <NavItem label="양식일지관리" to="/journal" />
 
       <NavItem
         label="마이페이지"

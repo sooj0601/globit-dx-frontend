@@ -5,6 +5,7 @@ import {useMediaQuery} from "~/common/hooks/useMediaQuery";
 export type TableItemProps = {
   title?: string | React.ReactNode;
   header?: React.ReactNode;
+  footer?: React.ReactNode;
   children: React.ReactNode;
   variant?: 'default' | 'slate' | 'violet' | 'lime' | 'yellow' | 'cyan' | 'indigo' | 'teal' | 'pink' | 'brown' | 'orange';
   className?: string;
@@ -12,13 +13,28 @@ export type TableItemProps = {
   bodyControl?: string;
   accordion?: boolean;
   onClick?: () => void;
+  defaultOpen?: boolean;
 }
 
-export function TableRow({ title, header, children, variant = 'default', className = '', headControl = '', bodyControl = '', accordion = false, onClick}: TableItemProps) {
-  const isPc = useMediaQuery('(min-width: 1024px)') // lg 기준
-  const [isOpen, setIsOpen] = useState(true);
+export function TableRow({
+                           title,
+                           header,
+                           footer,
+                           children,
+                           variant = 'default',
+                           className = '',
+                           headControl = '',
+                           bodyControl = '',
+                           accordion = false,
+                           onClick,
+                           defaultOpen = true,    // ✅ 기존 동작 유지: 아무 것도 안 넘기면 열려 있음
+                         }: TableItemProps) {
+  const isPc = useMediaQuery('(min-width: 1024px)'); // lg 기준
+
+  const [isOpen, setIsOpen] = useState(defaultOpen);
   const forceOpen = !accordion || isPc;
-  const actualOpen = forceOpen || isOpen
+  const actualOpen = forceOpen || isOpen;
+
   const closeStyleMap = {
     default: 'bg-slate-50',
     slate: 'bg-slate-50',
@@ -71,36 +87,61 @@ export function TableRow({ title, header, children, variant = 'default', classNa
     brown: 'text-yellow-800',
     orange: 'text-orange-500',
   };
-  const baseStyle = 'w-full flex lg:hidden items-center justify-between py-3 px-4 font-bold '
+  const baseStyle = 'w-full flex lg:hidden items-center justify-between py-3 px-4 font-bold ';
+
   return (
-    <div onClick={onClick} className={`rounded-2xl lg:rounded-none lg:border-b-1 lg:border-b-slate-300 ${actualOpen ? openStyleMap[variant] : closeStyleMap[variant]} ${className}`}>
+    <div
+      onClick={onClick}
+      className={`rounded-2xl lg:rounded-none lg:border-b-1 lg:border-b-slate-300 ${
+        actualOpen ? openStyleMap[variant] : closeStyleMap[variant]
+      } ${className}`}
+    >
       {!forceOpen && (
         <div
           aria-expanded={actualOpen}
           className={`${baseStyle} ${actualOpen && borderStyle[variant]} ${headControl}`}
           onClick={() => setIsOpen(prev => !prev)}
         >
-          <span className={`font-bold ${textStyle[variant]}`}>{title}</span>
+          <div className={`font-bold ${textStyle[variant]}`}>{title}</div>
           <div className="ml-auto">
             {header}
           </div>
           <ChevronDown
-            className={`size-6 lg:size-8 transition-transform duration-200 ml-4 ${actualOpen ? 'rotate-180' +
-              ' text-slate-800' : 'text-slate-400'}`}
+            className={`size-6 lg:size-8 transition-transform duration-200 ml-4 ${
+              actualOpen ? 'rotate-180 text-slate-800' : 'text-slate-400'
+            }`}
             size={32}
             strokeWidth={1.5}
           />
         </div>
       )}
+
       {forceOpen && (title || header) && (
         <div className={`border-b border-slate-300 ${baseStyle} ${headControl}`}>
           {title && <span className="font-bold">{title}</span>}
           {header && <div className="ml-auto">{header}</div>}
         </div>
       )}
+
       {actualOpen && (
         <div className={`w-full lg:p-2 p-4 grid grid-cols-2 gap-x-2 gap-y-1 lg:gap-1 lg:flex lg:items-center ${bodyControl}`}>
           {children}
+        </div>
+      )}
+
+      {!forceOpen && footer && (
+        <div
+          aria-expanded={actualOpen}
+          className={`${baseStyle} border-t border-t-slate-300`}
+          onClick={() => setIsOpen(prev => !prev)}
+        >
+          {footer}
+        </div>
+      )}
+
+      {forceOpen && footer && (
+        <div className={`border-b border-slate-300 ${baseStyle} ${headControl}`}>
+          {footer}
         </div>
       )}
     </div>

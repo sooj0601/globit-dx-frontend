@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 type CustomBtnProps = {
   size?: 'xs' | 'sm' | 'lg' | 'icon';
-  variant?: 'default' | 'primary' | 'secondary' | 'gray' | 'danger' | 'ghost' | 'outline';
+  variant?: 'default' | 'primary' | 'secondary' | 'gray' | 'success' | 'danger' | 'ghost' | 'outline';
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   children?: ReactNode;
@@ -65,8 +65,11 @@ export default function CustomBtn({
     case 'outline':
       variantClass = 'border border-slate-800 bg-white hover:bg-slate-200';
       break;
+    case 'success':
+      variantClass = 'bg-green-500 text-white hover:bg-green-300';
+      break;
   }
-  const baseClass = `inline-flex items-center justify-center font-bold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer ${sizeClass} ${variantClass} ${className}`;
+  const baseClass = `inline-flex items-center justify-center font-bold transition-colors duration-200 focus:outline-none cursor-pointer ${sizeClass} ${variantClass} ${className}`;
   const content = (
     <>
       {leftIcon && <span className="flex-shrink-0">{leftIcon}</span>}

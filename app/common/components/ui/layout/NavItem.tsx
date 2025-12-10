@@ -65,7 +65,7 @@ export default function NavItem({
         <NavLink
           to={to || '#'}
           className={({ isActive }) =>
-            `flex items-center text-lg h-12 px-2 lg:px-4 py-2 ${className} ${
+            `flex items-center text-lg h-12 px-2 lg:px-2 py-2 ${className} ${
               isActive ? 'font-bold text-blue-600' : 'font-medium'
             }`
           }

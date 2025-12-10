@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-react';
 type StatusSelectProps = {
   value: string;
   onChange: (value: string) => void;
-  options?: string[]; // 기본값: ['사용', '미사용']
+  options?: string[];
   disabled?: boolean;
   className?: string;
 };
@@ -19,7 +19,7 @@ type DropdownPos = {
 export default function StatusSelect({
                                        value,
                                        onChange,
-                                       options = ['사용', '미사용'],
+                                       options = ['진행중', '미진행', '보완요청중', '완료'],
                                        disabled = false,
                                        className = '',
                                      }: StatusSelectProps) {
@@ -28,8 +28,10 @@ export default function StatusSelect({
   const containerRef = useRef<HTMLDivElement>(null);
 
   const getStyleByValue = (v: string) => {
-    if (v === '사용') return 'text-green-500 border-green-500 bg-green-50';
-    if (v === '미사용') return 'text-rose-500 border-rose-500 bg-rose-50';
+    if (v === '진행중') return 'text-blue-500 border-blue-500 bg-blue-50';
+    if (v === '미진행') return 'text-amber-500 border-amber-500 bg-amber-50';
+    if (v === '보완요청중') return 'text-rose-500 border-rose-500 bg-rose-50';
+    if (v === '완료') return 'text-green-500 border-green-500 bg-green-50';
     return 'text-slate-800 border-slate-300 bg-white';
   };
 

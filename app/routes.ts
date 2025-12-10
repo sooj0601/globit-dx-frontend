@@ -42,6 +42,13 @@ export default [
     route('farm', 'features/integration/pages/farm.tsx'),
   ]),
 
+  // MARK: - 비용관리
+  route('cost', 'features/cost/pages/cost-page.tsx'),
+
+  // MARK: - 양식일지관리
+  route('journal', 'features/journal/pages/journal-page.tsx'),
+
+
   // MARK: - 마이페이지
   ...prefix('mypage', [
     route('/info', 'features/mypage/pages/info-edit.tsx'),
